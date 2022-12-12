@@ -63,7 +63,7 @@ public class PracticeForm {
         year.click();
         year_2003.click();
         dayofbirth.click();
-        submit.should(Condition.visible).click();
+        submit.click();
 
     }
 }

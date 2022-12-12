@@ -29,7 +29,7 @@ public class WebTablesTest {
     }
 
 
-    @Step
+/*    @Step
     public void test() {
         open(baseUrl);
         forms.should(Condition.visible).click();
@@ -41,6 +41,33 @@ public class WebTablesTest {
         age.should(Condition.visible).val("19");
         salary.should(Condition.visible).val("10000");
         department.should(Condition.visible).val("Test");
+        submit.click();
+    }*/
+    @Step("Открытие формы для заполнения")
+    public void OpenWindowAndForms(){
+        open(baseUrl);
+        forms.should(Condition.visible).click();
+        practiceform.should(Condition.visible).click();
+        add.should(Condition.visible).click();
+    }
+    @Step("Ввод информации о работнике")
+    public void inputFormsInformation(String first_name,String last_name, String user_Email,String Age, String Salary, String Department){
+        firstName.should(Condition.visible).val(first_name);
+        lastName.should(Condition.visible).val(last_name);
+        userEmail.should(Condition.visible).val(user_Email);
+        age.should(Condition.visible).val(Age);
+        salary.should(Condition.visible).val(Salary);
+        department.should(Condition.visible).val(Department);
+
+/*        firstName.should(Condition.visible).val("Yuriy");
+        lastName.should(Condition.visible).val("Gruzdev");
+        userEmail.should(Condition.visible).val("dareon@gmail.com");
+        age.should(Condition.visible).val("19");
+        salary.should(Condition.visible).val("10000");
+        department.should(Condition.visible).val("Test");*/
+    }
+    @Step("Подтверждение информации о новом работнике")
+    public void inputSubmit(){
         submit.click();
     }
 }

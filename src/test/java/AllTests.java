@@ -12,12 +12,15 @@ public class AllTests {
         Configuration.browserSize = "1620x1080"; // Умно
     }
     @Test
-    public void PracticeFormTest()
+    public void WebTableTest()
     {
-        webTablesTest.test();
+        webTablesTest.OpenWindowAndForms();
+        webTablesTest.inputFormsInformation("Yuriy","Gruzdev","dareon@gmail.com",
+                "19","10000","Test");
+        webTablesTest.inputSubmit();
     }
     @Test
-    public void base()
+    public void PracticeFormTest()
     {
         practiceFormTest.authorisation();
     }
