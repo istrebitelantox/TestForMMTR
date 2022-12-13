@@ -2,8 +2,6 @@ import com.codeborne.selenide.Configuration;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import Tests.*;
-import io.qameta.allure.*;
-import org.testng.ITestResult;
 
 
 public class AllTests {
