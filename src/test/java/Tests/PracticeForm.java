@@ -1,10 +1,8 @@
 package Tests;
 import com.codeborne.selenide.Condition;
-import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.SelenideElement;
 import io.qameta.allure.Step;
-import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.Test;
+
 import org.openqa.selenium.By;
 
 import static com.codeborne.selenide.Selenide.*;
@@ -25,45 +23,48 @@ public class PracticeForm {
     private SelenideElement year =$(By.xpath("//select[@class='react-datepicker__month-select']"));
     private SelenideElement year_2003 =$(By.xpath("//option[@value='2003']"));
     private SelenideElement dayofbirth =$(By.xpath("//div[@aria-label='Choose Monday, June 9th, 2003']"));
-    private SelenideElement submit =$(By.xpath("//button[@id='submit']"));
-
-    @BeforeAll
-    static void beforeConfig() {
-        Configuration.timeout = 3000; // Умное ожидание появление элемента на странице
-        Configuration.browserSize = "1620x1080"; // Умно
-    }
+    private SelenideElement submitButton =$(By.xpath("//button[@id='submit']"));
+    private SelenideElement closeButton =$(By.xpath("//button[@id='closeLargeModal']"));
 
 
-/*    @BeforeEach
-    public void before() {
-
-        open(baseUrl);
-
-        firstName.should(Condition.visible).val("demo");
-        lastName.should(Condition.visible).val("demo");
-        userEmail.should(Condition.visible).click();
-
-        male.should(Condition.visible).val("0000");
-        codeBtn.should(Condition.visible).click();
-    }*/
-
-    @Step
-    public void authorisation() {
+    @Step("Открытие формы для заполнения")
+    public void openWindowAndForms(){
         open(baseUrl);
         forms.should(Condition.visible).click();
         practiceform.should(Condition.visible).click();
-        firstName.should(Condition.visible).val("Yuriy");
-        lastName.should(Condition.visible).val("Gruzdev");
-        userEmail.should(Condition.visible).val("dareon@gmail.com");
+    }
+    @Step("Ввод информации о студенте")
+    public void nameInformation(String first_name,String last_name) {
+        firstName.should(Condition.visible).val(first_name);
+        lastName.should(Condition.visible).val(last_name);
+    }
+    @Step("Ввод почты студента")
+    public void emailInformation(String user_Email) {
+        userEmail.should(Condition.visible).val(user_Email);
+    }
+    @Step("Ввод пола студента")
+    public void genderInformation() {
         male.should(Condition.visible).click();
-        mobile.should(Condition.visible).val("89502458776");
+    }
+    @Step("Ввод номера телефона студента")
+    public void mobileInformation(String Mobile) {
+        mobile.should(Condition.visible).val(Mobile);
+    }
+    @Step("Ввод даты рождения студента")
+    public void dayOfBirthInformation() {
         dateofbirth.should(Condition.visible).click();
         month.click();
         june.click();
         year.click();
         year_2003.click();
         dayofbirth.click();
-        submit.click();
-
+    }
+    @Step("Подтверждение информации о новом студенте")
+    public void inputSubmit(){
+        submitButton.click();
+    }
+    @Step("Закрытие заполненой формы")
+    public void inputClose(){
+        closeButton.click();
     }
 }

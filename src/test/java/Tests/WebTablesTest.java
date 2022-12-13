@@ -21,13 +21,6 @@ public class WebTablesTest {
     private SelenideElement salary = $(By.xpath("//input[@id='salary']"));
     private SelenideElement department = $(By.xpath("//input[@id='department']"));
     private SelenideElement submit =$(By.xpath("//button[@id='submit']"));
-    PracticeForm practiceFormTest=new PracticeForm();
-    @BeforeAll
-    static void beforeConfig() {
-        Configuration.timeout = 3000; // Умное ожидание появление элемента на странице
-        Configuration.browserSize = "1620x1080"; // Умно
-    }
-
 
 /*    @Step
     public void test() {
@@ -44,27 +37,38 @@ public class WebTablesTest {
         submit.click();
     }*/
     @Step("Открытие формы для заполнения")
-    public void OpenWindowAndForms(){
+    public void openWindowAndForms(){
         open(baseUrl);
         forms.should(Condition.visible).click();
         practiceform.should(Condition.visible).click();
         add.should(Condition.visible).click();
     }
     @Step("Ввод информации о работнике")
-    public void inputFormsInformation(String first_name,String last_name, String user_Email,String Age, String Salary, String Department){
+    public void nameInformation(String first_name,String last_name){
         firstName.should(Condition.visible).val(first_name);
         lastName.should(Condition.visible).val(last_name);
-        userEmail.should(Condition.visible).val(user_Email);
-        age.should(Condition.visible).val(Age);
-        salary.should(Condition.visible).val(Salary);
-        department.should(Condition.visible).val(Department);
-
 /*        firstName.should(Condition.visible).val("Yuriy");
         lastName.should(Condition.visible).val("Gruzdev");
         userEmail.should(Condition.visible).val("dareon@gmail.com");
         age.should(Condition.visible).val("19");
         salary.should(Condition.visible).val("10000");
         department.should(Condition.visible).val("Test");*/
+    }
+    @Step("Ввод почты работника")
+    public void emailInformation(String user_Email) {
+        userEmail.should(Condition.visible).val(user_Email);
+    }
+    @Step("Ввод возраста работника")
+    public void ageInformation(String Age) {
+        age.should(Condition.visible).val(Age);
+    }
+    @Step("Ввод зарплаты пользователя")
+    public void salaryInformation(String Salary) {
+        salary.should(Condition.visible).val(Salary);
+    }
+    @Step("Ввод подразделения работника")
+    public void departmentInformation(String Department) {
+        department.should(Condition.visible).val(Department);
     }
     @Step("Подтверждение информации о новом работнике")
     public void inputSubmit(){
