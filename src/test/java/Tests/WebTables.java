@@ -1,15 +1,13 @@
 package Tests;
 import com.codeborne.selenide.Condition;
-import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.SelenideElement;
 import io.qameta.allure.Step;
-import org.junit.jupiter.api.BeforeAll;
 import org.openqa.selenium.By;
 
 
 import static com.codeborne.selenide.Selenide.*;
 
-public class WebTablesTest {
+public class WebTables {
     private static String baseUrl = "https://demoqa.com/";
     private SelenideElement forms = $(By.xpath("//h5[.='Elements']"));
     private SelenideElement practiceform = $(By.xpath("//span[.='Web Tables']"));
