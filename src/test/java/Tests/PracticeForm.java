@@ -73,7 +73,6 @@ public class PracticeForm {
     @Step("Подтверждение информации о новом студенте")
     public void inputSubmit(){
         submitButton.click();
-        sleep(2000);
     }
     @Step("Закрытие заполненой формы")
     public void inputClose(){
