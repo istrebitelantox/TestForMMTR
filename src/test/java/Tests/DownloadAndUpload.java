@@ -28,6 +28,8 @@ public class DownloadAndUpload {
     @Step("Загрузка своего файла")
     public void uploadFile()
     {
-        uploadInput.val("C:\\Users\\инет\\IdeaProjects\\TestForMMTR\\2.jpg");
+        uploadInput.val("/home/yuriy/IdeaProjects/TestForMMTR/2.jpg");
     }
+    //C:\\Users\\инет\\IdeaProjects\\TestForMMTR\\2.jpg"
+
 }

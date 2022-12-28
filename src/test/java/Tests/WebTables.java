@@ -20,20 +20,6 @@ public class WebTables {
     private SelenideElement department = $(By.xpath("//input[@id='department']"));
     private SelenideElement submit =$(By.xpath("//button[@id='submit']"));
 
-/*    @Step
-    public void test() {
-        open(baseUrl);
-        forms.should(Condition.visible).click();
-        practiceform.should(Condition.visible).click();
-        add.should(Condition.visible).click();
-        firstName.should(Condition.visible).val("Yuriy");
-        lastName.should(Condition.visible).val("Gruzdev");
-        userEmail.should(Condition.visible).val("dareon@gmail.com");
-        age.should(Condition.visible).val("19");
-        salary.should(Condition.visible).val("10000");
-        department.should(Condition.visible).val("Test");
-        submit.click();
-    }*/
     @Step("Открытие формы для заполнения")
     public void openWindowAndForms(){
         open(baseUrl);
@@ -45,20 +31,14 @@ public class WebTables {
     public void nameInformation(String first_name,String last_name){
         firstName.should(Condition.visible).val(first_name);
         lastName.should(Condition.visible).val(last_name);
-/*        firstName.should(Condition.visible).val("Yuriy");
-        lastName.should(Condition.visible).val("Gruzdev");
-        userEmail.should(Condition.visible).val("dareon@gmail.com");
-        age.should(Condition.visible).val("19");
-        salary.should(Condition.visible).val("10000");
-        department.should(Condition.visible).val("Test");*/
     }
     @Step("Ввод почты работника")
     public void emailInformation(String user_Email) {
         userEmail.should(Condition.visible).val(user_Email);
     }
     @Step("Ввод возраста работника")
-    public void ageInformation(String Age) {
-        age.should(Condition.visible).val(Age);
+    public void ageInformation(String age) {
+        this.age.should(Condition.visible).val(age);
     }
     @Step("Ввод зарплаты пользователя")
     public void salaryInformation(String Salary) {

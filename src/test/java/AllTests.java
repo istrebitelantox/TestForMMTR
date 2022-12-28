@@ -18,11 +18,11 @@ public class AllTests {
         Configuration.timeout = 3000;
         Configuration.browserSize = "1620x1080";
     }
-    @Test()
+    @Test
     public void WebTableTest()
     {
         //Открывается окно, а затем форма для заполнения
-        webTables.openWindow();
+        webTables.openWindowAndForms();
         //Заполняется имя и фамилия работника
         webTables.nameInformation("Yuriy","Gruzdev");
         //Заполняется e-mail работника
@@ -40,7 +40,7 @@ public class AllTests {
     public void PracticeFormTest()
     {
         //Открывается окно, а затем форма для заполнения
-        practiceFormTest.openWindow();
+        practiceFormTest.openWindowAndForms();
         //Заполняется имя и фамилия студента
         practiceFormTest.nameInfo("Yuriy","Gruzdev");
         //Заполняется e-mail студента
@@ -52,7 +52,7 @@ public class AllTests {
         //Заполняется дата рождения студента
         practiceFormTest.dayOfBirthInfo();
         //Вставляется фотография студента
-        practiceFormTest.inputPicture("C:\\Users\\инет\\IdeaProjects\\TestForMMTR\\2.jpg");
+        practiceFormTest.inputPicture("/home/yuriy/IdeaProjects/TestForMMTR/2.jpg");
         //Заполняется адресс студента
         practiceFormTest.currentAddressInfo("ул. Советска, 19");
         //Принимается информация о студенте
