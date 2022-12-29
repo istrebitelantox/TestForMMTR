@@ -1,5 +1,6 @@
 package org.example.Tests;
 import com.codeborne.selenide.Condition;
+import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.SelenideElement;
 import io.qameta.allure.Step;
 import org.example.HelpClass.A;
@@ -10,7 +11,7 @@ import org.openqa.selenium.By;
 import static com.codeborne.selenide.Selenide.*;
 
 public class Links {
-    private static final String baseUrl = "https://demoqa.com/";
+    String text;
     private final SelenideElement window = $(By.xpath("//h5[.='Elements']"));
     private final SelenideElement linksPage = $(By.xpath("//span[.='Links']"));
     private final SelenideElement createButton = new A("created").getA();
@@ -23,7 +24,6 @@ public class Links {
     private final SelenideElement linkResponse = $(By.xpath("//p[@id='linkResponse']"));
     @Step("Переход к форме")
     public void openWindow(){
-        open(baseUrl);
         window.should(Condition.visible).click();
         linksPage.should(Condition.visible).click();
     }
@@ -40,14 +40,13 @@ public class Links {
     @Step("Проверка Moved")
     public void movedCheck(){
         movedButton.click();
-
-        Assertions.assertEquals("Link has responded with staus 301 and status text Moved Permanently",linkResponse.getText());
+        text=linkResponse.getText();
+        Assertions.assertEquals("Link has responded with staus 301 and status text Moved Permanently",linkResponse.should().getText());
     }
     @Step("Проверка Bad Request")
     public void badRequestCheck(){
         badRequestButton.click();
-        sleep(1000);
-        Assertions.assertEquals("Link has responded with staus 400 and status text Bad Request",linkResponse.getText());
+        Assertions.assertEquals("Link has responded with staus 400 and status text Bad Request",linkResponse.should(Condition.visible).getText());
     }
     @Step("Проверка Unauthorized")
     public void unauthorizedCheck(){

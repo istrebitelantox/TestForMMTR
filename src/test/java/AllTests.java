@@ -1,25 +1,33 @@
+import org.example.HelpClass.HomePage;
 import org.example.Tests.DownloadAndUpload;
 import org.example.Tests.Links;
 import org.example.Tests.PracticeForm;
 import org.example.Tests.WebTables;
 import com.codeborne.selenide.Configuration;
-import io.qameta.allure.Flaky;
-import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.*;
 
+import static com.codeborne.selenide.Selenide.open;
+@TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 public class AllTests {
 
     PracticeForm practiceFormTest=new PracticeForm();
     WebTables webTables =new WebTables();
     DownloadAndUpload downloadAndUpload =new DownloadAndUpload();
     Links links =new Links();
+
     @BeforeAll
     static void beforeConfig() {
         Configuration.timeout = 3000;
-        Configuration.browserSize = "1620x1080";
+        Configuration.browserSize = "1920x1080";
+        open(new HomePage().getBaseUrl());
     }
+    @BeforeEach
+    public void Url(){
+        open(new HomePage().getBaseUrl());
+    }
+    @Order(2)
     @Test
-    public void WebTableTest()
+    public void webTableTest()
     {
         //Открывается окно, а затем форма для заполнения
         webTables.openWindowAndForms();
@@ -36,8 +44,9 @@ public class AllTests {
         //Принимается информация о работнике и добавляется в таблицу
         webTables.inputSubmit();
     }
+    @Order(1)
     @Test
-    public void PracticeFormTest()
+    public void apracticeFormTest()
     {
         //Открывается окно, а затем форма для заполнения
         practiceFormTest.openWindowAndForms();
@@ -52,7 +61,7 @@ public class AllTests {
         //Заполняется дата рождения студента
         practiceFormTest.dayOfBirthInfo();
         //Вставляется фотография студента
-        practiceFormTest.inputPicture("/home/yuriy/IdeaProjects/TestForMMTR/2.jpg");
+        practiceFormTest.inputPicture("/home/yuriy/IdeaProjects/TestForMMTR/avatar.jpg");
         //Заполняется адресс студента
         practiceFormTest.currentAddressInfo("ул. Советска, 19");
         //Принимается информация о студенте
@@ -60,8 +69,8 @@ public class AllTests {
         //Закрывается форма
         practiceFormTest.inputClose();
     }
+    @Order(3)
     @Test
-    @Flaky
     public void downlaodAndUploadTest()
     {
         //Открывается окно, а затем форма для заполнения
@@ -71,6 +80,7 @@ public class AllTests {
         //Загружается своя фотография
         downloadAndUpload.uploadFile();
     }
+    @Order(4)
     @Test
     public void linksTest()
     {

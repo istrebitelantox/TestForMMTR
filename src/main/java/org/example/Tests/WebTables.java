@@ -10,7 +10,6 @@ import org.openqa.selenium.By;
 import static com.codeborne.selenide.Selenide.*;
 
 public class WebTables {
-    private static String baseUrl = "https://demoqa.com/";
     private SelenideElement forms = $(By.xpath("//h5[.='Elements']"));
     private SelenideElement practiceform = $(By.xpath("//span[.='Web Tables']"));
     private SelenideElement add = new Button("addNewRecordButton").getButton();
@@ -24,7 +23,6 @@ public class WebTables {
 
     @Step("Открытие формы для заполнения")
     public void openWindowAndForms(){
-        open(baseUrl);
         forms.should(Condition.visible).click();
         practiceform.should(Condition.visible).click();
         add.should(Condition.visible).click();

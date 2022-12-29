@@ -7,10 +7,12 @@ import org.example.HelpClass.Button;
 import org.example.HelpClass.Input;
 import org.openqa.selenium.By;
 
+import java.io.File;
+
 import static com.codeborne.selenide.Selenide.*;
 
 public class PracticeForm {
-    private static String baseUrl = "https://demoqa.com/";
+    File file=new File("2.jpg");
     private SelenideElement forms = $(By.xpath("//h5[.='Forms']"));
     private SelenideElement practiceform = $(By.xpath("//span[.='Practice Form']"));
     private SelenideElement firstName = new Input("firstName").getInput();
@@ -21,7 +23,6 @@ public class PracticeForm {
     private SelenideElement dateofbirth =new Input("dateOfBirthInput").getInput();
     private SelenideElement month =$(By.xpath("//select[@class='react-datepicker__month-select']"));
     private SelenideElement june =$(By.xpath("//option[@value='5']"));
-
     private SelenideElement year =$(By.xpath("//select[@class='react-datepicker__month-select']"));
     private SelenideElement year_2003 =$(By.xpath("//option[@value='2003']"));
     private SelenideElement dayofbirth =$(By.xpath("//div[@aria-label='Choose Monday, June 9th, 2003']"));
@@ -33,7 +34,6 @@ public class PracticeForm {
 
     @Step("Открытие формы для заполнения")
     public void openWindowAndForms(){
-        open(baseUrl);
         forms.should(Condition.visible).click();
         practiceform.should(Condition.visible).click();
     }
