@@ -1,28 +1,28 @@
-package Tests;
+package org.example.Tests;
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.SelenideElement;
 import io.qameta.allure.Step;
+import org.example.HelpClass.Button;
+import org.example.HelpClass.Input;
 import org.openqa.selenium.By;
 
 
 import static com.codeborne.selenide.Selenide.*;
 
 public class WebTables {
-    private static String baseUrl = "https://demoqa.com/";
     private SelenideElement forms = $(By.xpath("//h5[.='Elements']"));
     private SelenideElement practiceform = $(By.xpath("//span[.='Web Tables']"));
-    private SelenideElement add = $(By.xpath("//button[@id='addNewRecordButton']"));
-    private SelenideElement firstName = $(By.xpath("//input[@id='firstName']"));
-    private SelenideElement lastName = $(By.xpath("//input[@id='lastName']"));
-    private SelenideElement userEmail = $(By.xpath("//input[@id='userEmail']"));
-    private SelenideElement age = $(By.xpath("//input[@id='age']"));
-    private SelenideElement salary = $(By.xpath("//input[@id='salary']"));
-    private SelenideElement department = $(By.xpath("//input[@id='department']"));
-    private SelenideElement submit =$(By.xpath("//button[@id='submit']"));
+    private SelenideElement add = new Button("addNewRecordButton").getButton();
+    private SelenideElement firstName = new Input("firstName").getInput();
+    private SelenideElement lastName = new Input("lastName").getInput();
+    private SelenideElement userEmail = new Input("userEmail").getInput();
+    private SelenideElement age = new Input("age").getInput();
+    private SelenideElement salary = new Input("salary").getInput();
+    private SelenideElement department = new Input("department").getInput();
+    private SelenideElement submit =new Button("submit").getButton();
 
     @Step("Открытие формы для заполнения")
     public void openWindowAndForms(){
-        open(baseUrl);
         forms.should(Condition.visible).click();
         practiceform.should(Condition.visible).click();
         add.should(Condition.visible).click();

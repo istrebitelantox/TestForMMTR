@@ -1,38 +1,39 @@
-package Tests;
+package org.example.Tests;
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.SelenideElement;
 import io.qameta.allure.Step;
 
-import org.junit.jupiter.api.Assertions;
+import org.example.HelpClass.Button;
+import org.example.HelpClass.Input;
 import org.openqa.selenium.By;
+
+import java.io.File;
 
 import static com.codeborne.selenide.Selenide.*;
 
 public class PracticeForm {
-    private static String baseUrl = "https://demoqa.com/";
+    File file=new File("2.jpg");
     private SelenideElement forms = $(By.xpath("//h5[.='Forms']"));
     private SelenideElement practiceform = $(By.xpath("//span[.='Practice Form']"));
-    private SelenideElement firstName = $(By.xpath("//input[@id='firstName']"));
-    private SelenideElement lastName = $(By.xpath("//input[@id='lastName']"));
-    private SelenideElement userEmail = $(By.xpath("//input[@id='userEmail']"));
+    private SelenideElement firstName = new Input("firstName").getInput();
+    private SelenideElement lastName = new Input("lastName").getInput();
+    private SelenideElement userEmail =new Input("userEmail").getInput();
     private SelenideElement male = $(By.xpath("//label[@class='custom-control-label']"));
-    private SelenideElement mobile = $(By.xpath("//input[@id='userNumber']"));
-    private SelenideElement dateofbirth =$(By.xpath("//input[@id='dateOfBirthInput']"));
+    private SelenideElement mobile = new Input("userNumber").getInput();
+    private SelenideElement dateofbirth =new Input("dateOfBirthInput").getInput();
     private SelenideElement month =$(By.xpath("//select[@class='react-datepicker__month-select']"));
     private SelenideElement june =$(By.xpath("//option[@value='5']"));
-
     private SelenideElement year =$(By.xpath("//select[@class='react-datepicker__month-select']"));
     private SelenideElement year_2003 =$(By.xpath("//option[@value='2003']"));
     private SelenideElement dayofbirth =$(By.xpath("//div[@aria-label='Choose Monday, June 9th, 2003']"));
-    private SelenideElement uploadInput = $(By.xpath("//input[@id='uploadPicture']"));
+    private SelenideElement uploadInput = new Input("uploadPicture").getInput();
     private SelenideElement currentAddress = $(By.xpath("//textarea[@id='currentAddress']"));
-    private SelenideElement submitButton =$(By.xpath("//button[@id='submit']"));
-    private SelenideElement closeButton =$(By.xpath("//button[@id='closeLargeModal']"));
+    private SelenideElement submitButton =new Button("submit").getButton();
+    private SelenideElement closeButton =new Button("closeLargeModal").getButton();
 
 
     @Step("Открытие формы для заполнения")
     public void openWindowAndForms(){
-        open(baseUrl);
         forms.should(Condition.visible).click();
         practiceform.should(Condition.visible).click();
     }
