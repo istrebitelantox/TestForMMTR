@@ -8,10 +8,11 @@ import org.junit.jupiter.api.Assertions;
 import org.openqa.selenium.By;
 
 
+import java.time.Duration;
+
 import static com.codeborne.selenide.Selenide.*;
 
 public class Links {
-    String text;
     private final SelenideElement window = $(By.xpath("//h5[.='Elements']"));
     private final SelenideElement linksPage = $(By.xpath("//span[.='Links']"));
     private final SelenideElement createButton = new A("created").getA();
@@ -40,7 +41,6 @@ public class Links {
     @Step("Проверка Moved")
     public void movedCheck(){
         movedButton.click();
-        text=linkResponse.getText();
         Assertions.assertEquals("Link has responded with staus 301 and status text Moved Permanently",linkResponse.should().getText());
     }
     @Step("Проверка Bad Request")
