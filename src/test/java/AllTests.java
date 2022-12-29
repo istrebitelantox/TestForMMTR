@@ -1,7 +1,7 @@
-import Tests.DownloadAndUpload;
-import Tests.Links;
-import Tests.PracticeForm;
-import Tests.WebTables;
+import org.example.Tests.DownloadAndUpload;
+import org.example.Tests.Links;
+import org.example.Tests.PracticeForm;
+import org.example.Tests.WebTables;
 import com.codeborne.selenide.Configuration;
 import io.qameta.allure.Flaky;
 import org.junit.jupiter.api.BeforeAll;
