@@ -1,8 +1,5 @@
 import HelpClass.HomePage;
-import Page.PageModal;
-import Page.PageTextBox;
-import Page.PracticeForm;
-import Page.WebTables;
+import Page.*;
 import com.codeborne.selenide.Configuration;
 import org.junit.jupiter.api.*;
 
