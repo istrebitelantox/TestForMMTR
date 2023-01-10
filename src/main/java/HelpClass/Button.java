@@ -1,4 +1,4 @@
-package org.example.HelpClass;
+package HelpClass;
 
 import com.codeborne.selenide.SelenideElement;
 import lombok.Getter;
@@ -10,6 +10,6 @@ import static com.codeborne.selenide.Selenide.$;
 public class Button {
     private SelenideElement button;
     public Button(String buttonID){
-        button=$(By.xpath("//button[@id='"+buttonID+"']"));
+        button=$(By.cssSelector("button#"+buttonID));
     }
 }

@@ -1,11 +1,10 @@
-package org.example.Tests;
+package Tests;
+import HelpClass.A;
+import HelpClass.Input;
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.SelenideElement;
 
 import io.qameta.allure.Step;
-import org.example.HelpClass.A;
-import org.example.HelpClass.HomePage;
-import org.example.HelpClass.Input;
 import org.openqa.selenium.By;
 
 import java.io.File;
@@ -14,6 +13,7 @@ import static com.codeborne.selenide.Selenide.*;
 public class  DownloadAndUpload {
     File file=new File("avatar.jpg");
     private final SelenideElement window = $(By.xpath("//h5[.='Elements']"));
+    //private final SelenideElement downloadanduploadform = $(By.xpath("//span[.='Upload and Download']"));
     private final SelenideElement downloadanduploadform = $(By.xpath("//span[.='Upload and Download']"));
     private final SelenideElement downlaodButton = new A("downloadButton").getA();
     private final SelenideElement uploadInput = new Input("uploadFile").getInput();

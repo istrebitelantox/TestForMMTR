@@ -1,10 +1,10 @@
-package org.example.Tests;
+package Tests;
+import HelpClass.Button;
+import HelpClass.Input;
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.SelenideElement;
 import io.qameta.allure.Step;
 
-import org.example.HelpClass.Button;
-import org.example.HelpClass.Input;
 import org.openqa.selenium.By;
 
 import java.io.File;

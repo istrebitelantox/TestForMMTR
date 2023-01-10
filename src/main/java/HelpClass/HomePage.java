@@ -1,4 +1,4 @@
-package org.example.HelpClass;
+package HelpClass;
 
 import lombok.Getter;
 
