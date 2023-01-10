@@ -1,4 +1,5 @@
-package Tests;
+package Page;
+
 import HelpClass.Button;
 import HelpClass.Input;
 import com.codeborne.selenide.Condition;
@@ -12,24 +13,26 @@ import java.io.File;
 import static com.codeborne.selenide.Selenide.*;
 
 public class PracticeForm {
+    Input input=new Input();
+    Button button=new Button();
     File file=new File("2.jpg");
     private SelenideElement forms = $(By.xpath("//h5[.='Forms']"));
     private SelenideElement practiceform = $(By.xpath("//span[.='Practice Form']"));
-    private SelenideElement firstName = new Input("firstName").getInput();
-    private SelenideElement lastName = new Input("lastName").getInput();
-    private SelenideElement userEmail =new Input("userEmail").getInput();
+    private SelenideElement firstNameInput = input.getInput("firstName");
+    private SelenideElement lastNameInput = input.getInput("lastName");
+    private SelenideElement userEmailInput =input.getInput("userEmail");
     private SelenideElement male = $(By.xpath("//label[@class='custom-control-label']"));
-    private SelenideElement mobile = new Input("userNumber").getInput();
-    private SelenideElement dateofbirth =new Input("dateOfBirthInput").getInput();
+    private SelenideElement mobileInput = input.getInput("userNumber");
+    private SelenideElement dateOfBirthInput =input.getInput("dateOfBirthInput");
     private SelenideElement month =$(By.xpath("//select[@class='react-datepicker__month-select']"));
     private SelenideElement june =$(By.xpath("//option[@value='5']"));
     private SelenideElement year =$(By.xpath("//select[@class='react-datepicker__month-select']"));
     private SelenideElement year_2003 =$(By.xpath("//option[@value='2003']"));
     private SelenideElement dayofbirth =$(By.xpath("//div[@aria-label='Choose Monday, June 9th, 2003']"));
-    private SelenideElement uploadInput = new Input("uploadPicture").getInput();
-    private SelenideElement currentAddress = $(By.xpath("//textarea[@id='currentAddress']"));
-    private SelenideElement submitButton =new Button("submit").getButton();
-    private SelenideElement closeButton =new Button("closeLargeModal").getButton();
+    private SelenideElement uploadInput = input.getInput("uploadPicture");
+    private SelenideElement currentAddressText = $(By.xpath("//textarea[@id='currentAddress']"));
+    private SelenideElement submitButton =button.getButton("submit");
+    private SelenideElement closeButton =button.getButton("closeLargeModal");
 
 
     @Step("Открытие формы для заполнения")
@@ -39,12 +42,12 @@ public class PracticeForm {
     }
     @Step("Ввод информации о студенте")
     public void nameInfo(String first_name, String last_name) {
-        firstName.should(Condition.visible).val(first_name);
-        lastName.should(Condition.visible).val(last_name);
+        firstNameInput.should(Condition.visible).val(first_name);
+        lastNameInput.should(Condition.visible).val(last_name);
     }
     @Step("Ввод почты студента")
     public void emailInfo(String user_Email) {
-        userEmail.should(Condition.visible).val(user_Email);
+        userEmailInput.should(Condition.visible).val(user_Email);
     }
     @Step("Ввод пола студента")
     public void genderInfo() {
@@ -52,11 +55,11 @@ public class PracticeForm {
     }
     @Step("Ввод номера телефона студента")
     public void mobileInfo(String Mobile) {
-        mobile.should(Condition.visible).val(Mobile);
+        mobileInput.should(Condition.visible).val(Mobile);
     }
     @Step("Ввод даты рождения студента")
     public void dayOfBirthInfo() {
-        dateofbirth.should(Condition.visible).click();
+        dateOfBirthInput.should(Condition.visible).click();
         month.click();
         june.click();
         year.click();
@@ -69,7 +72,7 @@ public class PracticeForm {
     }
     @Step("Ввод адреса студента")
     public void currentAddressInfo(String current_Address){
-        currentAddress.val(current_Address);
+        currentAddressText.val(current_Address);
     }
     @Step("Подтверждение информации о новом студенте")
     public void inputSubmit(){

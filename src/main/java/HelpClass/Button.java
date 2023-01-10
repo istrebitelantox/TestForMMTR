@@ -6,10 +6,10 @@ import org.openqa.selenium.By;
 
 import static com.codeborne.selenide.Selenide.$;
 
-@Getter
 public class Button {
     private SelenideElement button;
-    public Button(String buttonID){
+    public SelenideElement getButton(String buttonID){
         button=$(By.cssSelector("button#"+buttonID));
+        return button;
     }
 }

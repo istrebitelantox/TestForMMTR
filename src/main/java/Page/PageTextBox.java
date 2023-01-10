@@ -1,4 +1,4 @@
-package Tests;
+package Page;
 
 import HelpClass.*;
 import com.codeborne.selenide.Condition;
@@ -10,17 +10,22 @@ import org.openqa.selenium.By;
 import static com.codeborne.selenide.Selenide.$;
 
 public class PageTextBox {
-    private final SelenideElement window = new CategoryCards(1).getCategory();
-    private final SelenideElement linksPage = new FormsPicker(1,0).getItem();
-    private final SelenideElement userName = new Input("userName").getInput();
-    private final SelenideElement userEmail = new Input("userEmail").getInput();
+    Input input=new Input();
+    P p=new P();
+    Button button=new Button();
+    private final SelenideElement window = $(By.cssSelector("div.category-cards>div:nth-child(1)"));
+            //new CategoryCards(1).getCategory();
+    private final SelenideElement linksPage = $(By.cssSelector("div.accordion > div:nth-child(1) li#item-0"));
+            //new FormsPicker(1,0).getItem();
+    private final SelenideElement userName = input.getInput("userName");
+    private final SelenideElement userEmail = input.getInput("userEmail");
     private final SelenideElement userCurrentAddress =$(By.cssSelector("textarea#currentAddress"));
     private final SelenideElement userPermanentAddress = $(By.cssSelector("textarea#permanentAddress"));
-    private final SelenideElement name = new P("name").getP();
-    private final SelenideElement email = new P("email").getP();
-    private final SelenideElement currentAddress = new P("currentAddress").getP();
-    private final SelenideElement permanentAddress = new P("permanentAddress").getP();
-    private final SelenideElement submitButton=new Button("submit").getButton();
+    private final SelenideElement name =p.getP("name");
+    private final SelenideElement email = p.getP("email");
+    private final SelenideElement currentAddress = p.getP("currentAddress");
+    private final SelenideElement permanentAddress = p.getP("permanentAddress");
+    private final SelenideElement submitButton=button.getButton("submit");
     @Step("Переход к форме")
     public void openWindow(){
         window.should(Condition.visible).click();
