@@ -10,7 +10,7 @@ public class TextArea {
     public TextArea(String textAreaID){
         textArea=$(By.cssSelector("textarea#"+textAreaID));
     }
-    public void setValue(String value){
+    public void setTextAreaValue(String value){
         textArea.setValue(value);
     }
 }

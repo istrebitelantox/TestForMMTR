@@ -1,4 +1,4 @@
-package SelenideElementsTools;
+package PageSteps;
 
 public class HomePage {
     private String baseUrl;

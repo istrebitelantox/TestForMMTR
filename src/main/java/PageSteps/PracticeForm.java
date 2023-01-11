@@ -40,12 +40,12 @@ public class PracticeForm {
     }
     @Step("Ввод информации о студенте")
     public void nameInfo(String first_name, String last_name) {
-        firstNameInput.setInput(first_name);
-        lastNameInput.setInput(last_name);
+        firstNameInput.setInputValue(first_name);
+        lastNameInput.setInputValue(last_name);
     }
     @Step("Ввод почты студента")
     public void emailInfo(String user_Email) {
-        userEmailInput.setInput(user_Email);
+        userEmailInput.setInputValue(user_Email);
     }
     @Step("Ввод пола студента")
     public void genderInfo() {
@@ -53,11 +53,11 @@ public class PracticeForm {
     }
     @Step("Ввод номера телефона студента")
     public void mobileInfo(String Mobile) {
-        mobileInput.setInput(Mobile);
+        mobileInput.setInputValue(Mobile);
     }
     @Step("Ввод даты рождения студента")
     public void dayOfBirthInfo() {
-        dateOfBirthInput.setClick();
+        dateOfBirthInput.setInputClick();
         month.click();
         june.click();
         year.click();
@@ -66,7 +66,7 @@ public class PracticeForm {
     }
     @Step("Добавление фотографии студента")
     public void inputPicture(String repos){
-        uploadInput.setInput(repos);
+        uploadInput.setInputValue(repos);
     }
     @Step("Ввод адреса студента")
     public void currentAddressInfo(String current_Address){
@@ -74,10 +74,10 @@ public class PracticeForm {
     }
     @Step("Подтверждение информации о новом студенте")
     public void inputSubmit(){
-        submitButton.setClick();
+        submitButton.setBtnClick();
     }
     @Step("Закрытие заполненой формы")
     public void inputClose(){
-        closeButton.setClick();
+        closeButton.setBtnClick();
     }
 }

@@ -30,29 +30,29 @@ public class PageTextBox {
     }
     @Step("Ввод \"name\"")
     public void setUserName(){
-        userName.setInput("Yuriy");
+        userName.setInputValue("Yuriy");
     }
     @Step("Ввод \"email\"")
     public void setUserEmail(){
-        userEmail.setInput("dareon@gmail.com");
+        userEmail.setInputValue("dareon@gmail.com");
     }
     @Step("Ввод \"current address\"")
     public void setUserCurrentAddress(){
-        userCurrentAddress.setValue("ул. Советская 29");
+        userCurrentAddress.setTextAreaValue("ул. Советская 29");
     }
     @Step("Ввод \"permanent address\"")
     public void setUserPermanentAddress(){
-        userPermanentAddress.setValue("ул. Кукушкина 19");
+        userPermanentAddress.setTextAreaValue("ул. Кукушкина 19");
     }
     @Step("Принятие формы")
     public void setSubmitButton(){
-        submitButton.setClick();
+        submitButton.setBtnClick();
     }
     @Step("Проверка введённой информации")
     public void checkInfo(Person person){
-        name.checkText(person.getName());
-        email.checkText(person.getEmail());
-        currentAddress.checkText(person.getCurrentAddress());
-        permanentAddress.checkText(person.getPermanentAddress());
+        name.pCheckText(person.getName());
+        email.pCheckText(person.getEmail());
+        currentAddress.pCheckText(person.getCurrentAddress());
+        permanentAddress.pCheckText(person.getPermanentAddress());
     }
 }

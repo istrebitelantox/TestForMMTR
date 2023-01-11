@@ -24,31 +24,31 @@ public class WebTables {
     public void openWindowAndForms(){
         forms.should(Condition.visible).click();
         webTablesFormOpen.should(Condition.visible).click();
-        addButton.setClick();
+        addButton.setBtnClick();
     }
     @Step("Ввод информации о работнике")
     public void nameInformation(String first_name,String last_name){
-        firstNameInput.setInput(first_name);
-        lastNameInput.setInput(last_name);
+        firstNameInput.setInputValue(first_name);
+        lastNameInput.setInputValue(last_name);
     }
     @Step("Ввод почты работника")
     public void emailInformation(String user_Email) {
-        userEmailInput.setInput(user_Email);
+        userEmailInput.setInputValue(user_Email);
     }
     @Step("Ввод возраста работника")
     public void ageInformation(String age) {
-        this.ageInput.setInput(age);
+        this.ageInput.setInputValue(age);
     }
     @Step("Ввод зарплаты пользователя")
     public void salaryInformation(String Salary) {
-        salaryInput.setInput(Salary);
+        salaryInput.setInputValue(Salary);
     }
     @Step("Ввод подразделения работника")
     public void departmentInformation(String Department) {
-        departmentInput.setInput(Department);
+        departmentInput.setInputValue(Department);
     }
     @Step("Подтверждение информации о новом работнике")
     public void inputSubmit(){
-        submitButton.setClick();
+        submitButton.setBtnClick();
     }
 }

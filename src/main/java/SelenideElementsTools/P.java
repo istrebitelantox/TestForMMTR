@@ -10,7 +10,7 @@ public class P {
     public P(String pID){
         p=$(By.cssSelector("p#"+pID));
     }
-    public void checkText(String text)
+    public void pCheckText(String text)
     {
         p.should(Condition.text(text));
     }

@@ -10,7 +10,7 @@ public class A {
     public A(String aID){
         this.a=$(By.cssSelector("a#"+aID));
     }
-    public void setValue(String value){
+    public void setA(String value){
         a.setValue(value);
     }
 }

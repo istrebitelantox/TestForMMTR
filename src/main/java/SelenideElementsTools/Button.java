@@ -10,7 +10,7 @@ public class Button {
     public Button(String buttonID){
         button=$(By.cssSelector("button#"+buttonID));
     }
-    public void setClick(){
+    public void setBtnClick(){
         button.click();
     }
 }

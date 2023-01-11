@@ -1,18 +1,15 @@
-import Persons.Employee;
-import Persons.Person;
-import SelenideElementsTools.HomePage;
-import PageSteps.*;
+package Tests;
+
+import Interfaces.IHomePage;
 import com.codeborne.selenide.Configuration;
-import org.junit.jupiter.api.*;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.BeforeEach;
 
 import static com.codeborne.selenide.Selenide.open;
-public class AllTests {
-    PageModal pageModal =new PageModal();
-    PageTextBox pageTextBox =new PageTextBox();
-    HomePage homePage=new HomePage();
-    WebTables webTables=new WebTables();
-    Person person=new Person("Yuriy","dareon@gmail.com","ул. Советская 29","ул. Кукушкина 19");
-    Employee employee=new Employee("Yuriy","Gruzdev","dareon@gmail.com","19","20000","QA");
+public class BaseTest implements IHomePage {
+
+/*    Person person=new Person("Yuriy","dareon@gmail.com","ул. Советская 29","ул. Кукушкина 19");
+    Employee employee=new Employee("Yuriy","Gruzdev","dareon@gmail.com","19","20000","QA");*/
 
     @BeforeAll
     static void beforeConfig() {
@@ -24,7 +21,7 @@ public class AllTests {
         open(homePage.getBaseUrl());
     }
 
-    @Test
+/*    @Test
     public void modalTest()
     {
         pageModal.openWindow();
@@ -34,8 +31,8 @@ public class AllTests {
         pageModal.setLargeModal();
         pageModal.checkLargeModalClick();
         pageModal.clickCloseLargeModal();
-    }
-    @Test
+    }*/
+/*    @Test
     public void textBoxTest()
     {
         pageTextBox.openWindow();
@@ -45,8 +42,8 @@ public class AllTests {
         pageTextBox.setUserPermanentAddress();
         pageTextBox.setSubmitButton();
         pageTextBox.checkInfo(person);
-    }
-    @Test
+    }*/
+/*    @Test
     public void webTableTest()
     {
         webTables.openWindowAndForms();
@@ -56,5 +53,5 @@ public class AllTests {
         webTables.salaryInformation(employee.getSalary());
         webTables.departmentInformation(employee.getDepartment());
         webTables.inputSubmit();
-    }
+    }*/
 }

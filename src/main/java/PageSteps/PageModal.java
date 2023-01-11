@@ -27,7 +27,7 @@ public class PageModal {
     @Step("Открытие мальенького модального окна")
     public void setSmallModal()
     {
-        smallModalButton.setClick();
+        smallModalButton.setBtnClick();
     }
     @Step("Проверка текста в маленьком модальном окне")
     public void checkSmallModalClick(){
@@ -35,12 +35,12 @@ public class PageModal {
     }
     @Step("Закрытие маленького модального окна")
     public void clickCloseSmallModal(){
-        closeSmallModalButton.setClick();
+        closeSmallModalButton.setBtnClick();
     }
     @Step("Открытие большого модального окна")
     public void setLargeModal()
     {
-        largeModalButton.setClick();
+        largeModalButton.setBtnClick();
     }
     @Step("Проверка текста в большом модальном окне")
     public void checkLargeModalClick(){
@@ -48,6 +48,6 @@ public class PageModal {
     }
     @Step("Закрытие большоного модального окна")
     public void clickCloseLargeModal(){
-        closeLargeModalButton.setClick();
+        closeLargeModalButton.setBtnClick();
     }
 }

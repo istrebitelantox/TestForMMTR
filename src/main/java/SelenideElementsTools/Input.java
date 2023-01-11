@@ -9,11 +9,11 @@ public class Input {
     public Input(String inputID){
         input=$(By.cssSelector("input#"+inputID));
     }
-    public void setInput(String value)
+    public void setInputValue(String value)
     {
         input.setValue(value);
     }
-    public void setClick(){
+    public void setInputClick(){
         input.click();
     }
 }
