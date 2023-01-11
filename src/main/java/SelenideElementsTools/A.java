@@ -1,15 +1,16 @@
-package HelpClass;
+package SelenideElementsTools;
 
 import com.codeborne.selenide.SelenideElement;
-import lombok.Getter;
 import org.openqa.selenium.By;
 
 import static com.codeborne.selenide.Selenide.$;
 
-@Getter
 public class A {
     private SelenideElement a;
     public A(String aID){
         this.a=$(By.cssSelector("a#"+aID));
+    }
+    public void setValue(String value){
+        a.setValue(value);
     }
 }

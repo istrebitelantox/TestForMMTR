@@ -1,16 +1,19 @@
-package HelpClass;
+package SelenideElementsTools;
 
 import com.codeborne.selenide.SelenideElement;
-import lombok.Getter;
 import org.openqa.selenium.By;
 
 import static com.codeborne.selenide.Selenide.$;
 public class Input {
     private SelenideElement input;
-    public SelenideElement getInput(String inputID)
-    {
+    public Input(String inputID){
         input=$(By.cssSelector("input#"+inputID));
-        return input;
     }
-
+    public void setInput(String value)
+    {
+        input.setValue(value);
+    }
+    public void setClick(){
+        input.click();
+    }
 }

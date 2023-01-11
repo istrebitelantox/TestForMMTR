@@ -1,15 +1,18 @@
-import HelpClass.HomePage;
-import Page.*;
+import Persons.Employee;
+import Persons.Person;
+import SelenideElementsTools.HomePage;
+import PageSteps.*;
 import com.codeborne.selenide.Configuration;
 import org.junit.jupiter.api.*;
 
 import static com.codeborne.selenide.Selenide.open;
 public class AllTests {
-
-    PracticeForm practiceFormTest=new PracticeForm();
-    WebTables webTables =new WebTables();
     PageModal pageModal =new PageModal();
     PageTextBox pageTextBox =new PageTextBox();
+    HomePage homePage=new HomePage();
+    WebTables webTables=new WebTables();
+    Person person=new Person("Yuriy","dareon@gmail.com","ул. Советская 29","ул. Кукушкина 19");
+    Employee employee=new Employee("Yuriy","Gruzdev","dareon@gmail.com","19","20000","QA");
 
     @BeforeAll
     static void beforeConfig() {
@@ -18,7 +21,7 @@ public class AllTests {
     }
     @BeforeEach
     public void Url(){
-        open(new HomePage().getBaseUrl());
+        open(homePage.getBaseUrl());
     }
 
     @Test
@@ -41,6 +44,17 @@ public class AllTests {
         pageTextBox.setUserCurrentAddress();
         pageTextBox.setUserPermanentAddress();
         pageTextBox.setSubmitButton();
-        pageTextBox.checkInfo();
+        pageTextBox.checkInfo(person);
+    }
+    @Test
+    public void webTableTest()
+    {
+        webTables.openWindowAndForms();
+        webTables.nameInformation(employee.getFirstName(),employee.getLastName());
+        webTables.emailInformation(employee.getEmail());
+        webTables.ageInformation(employee.getAge());
+        webTables.salaryInformation(employee.getSalary());
+        webTables.departmentInformation(employee.getDepartment());
+        webTables.inputSubmit();
     }
 }
