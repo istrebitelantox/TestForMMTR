@@ -1,17 +1,18 @@
 package Page;
 import HelpClass.Button;
-import HelpClass.CategoryCards;
-import HelpClass.FormsPicker;
 import HelpClass.Input;
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.SelenideElement;
 import io.qameta.allure.Step;
+import org.openqa.selenium.By;
+
+import static com.codeborne.selenide.Selenide.$;
 
 public class WebTables {
     Input input=new Input();
     Button button=new Button();
-    private SelenideElement forms = new CategoryCards(1).getCategory();
-    private SelenideElement webTablesFormOpen = new FormsPicker(2,3).getItem();
+    private SelenideElement forms =  $(By.xpath("//h5[.='Elements']"));
+    private SelenideElement webTablesFormOpen = $(By.xpath("//span[.='Web Tables']"));
     private SelenideElement addButton = button.getButton("addNewRecordButton");
     private SelenideElement firstNameInput = input.getInput("firstName");
     private SelenideElement lastNameInput = input.getInput("lastName");

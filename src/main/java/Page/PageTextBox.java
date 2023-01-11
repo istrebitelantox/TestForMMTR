@@ -31,19 +31,19 @@ public class PageTextBox {
         window.should(Condition.visible).click();
         linksPage.should(Condition.visible).click();
     }
-    @Step("Ввод name")
+    @Step("Ввод \"name\"")
     public void setUserName(){
         userName.val("Yuriy");
     }
-    @Step("Ввод email")
+    @Step("Ввод \"email\"")
     public void setUserEmail(){
         userEmail.val("dareon@gmail.com");
     }
-    @Step("Ввод current address")
+    @Step("Ввод \"current address\"")
     public void setUserCurrentAddress(){
         userCurrentAddress.val("ул. Советская 29");
     }
-    @Step("Ввод permanent address")
+    @Step("Ввод \"permanent address\"")
     public void setUserPermanentAddress(){
         userPermanentAddress.val("ул. Кукушкина 19");
     }
