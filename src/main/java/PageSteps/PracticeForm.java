@@ -3,6 +3,7 @@ package PageSteps;
 import SelenideElementsTools.Button;
 import SelenideElementsTools.Input;
 import com.codeborne.selenide.Condition;
+import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;
 import io.qameta.allure.Step;
 
@@ -10,12 +11,13 @@ import org.openqa.selenium.By;
 
 import java.io.File;
 
+import static com.codeborne.selenide.Condition.exactText;
 import static com.codeborne.selenide.Selenide.*;
 
 public class PracticeForm {
     File file=new File("2.jpg");
-    private SelenideElement forms = $(By.xpath("//h5[.='Forms']"));
-    private SelenideElement practiceform = $(By.xpath("//span[.='Practice Form']"));
+    private ElementsCollection forms = $$(By.cssSelector("div.category-cards h5"));
+    private ElementsCollection practiceform = $$(By.cssSelector("ul.menu-list li"));
     private Input firstNameInput = new Input("firstName");
     private Input lastNameInput = new Input("lastName");
     private Input userEmailInput =new Input("userEmail");
@@ -35,8 +37,8 @@ public class PracticeForm {
 
     @Step("Открытие формы для заполнения")
     public void openWindowAndForms(){
-        forms.should(Condition.visible).click();
-        practiceform.should(Condition.visible).click();
+        forms.find(exactText("Forms")).click();
+        practiceform.find(exactText("Practice Form")).click();
     }
     @Step("Ввод информации о студенте")
     public void nameInfo(String first_name, String last_name) {
@@ -65,8 +67,8 @@ public class PracticeForm {
         dayofbirth.click();
     }
     @Step("Добавление фотографии студента")
-    public void inputPicture(String repos){
-        uploadInput.setInputValue(repos);
+    public void inputPicture(){
+        uploadInput.uploadFileInput(file);
     }
     @Step("Ввод адреса студента")
     public void currentAddressInfo(String current_Address){

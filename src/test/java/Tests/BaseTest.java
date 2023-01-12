@@ -21,7 +21,7 @@ public class BaseTest implements IHomePage {
         open(homePage.getBaseUrl());
     }
 
-/*    @Test
+/*   @Test
     public void modalTest()
     {
         pageModal.openWindow();
@@ -31,8 +31,8 @@ public class BaseTest implements IHomePage {
         pageModal.setLargeModal();
         pageModal.checkLargeModalClick();
         pageModal.clickCloseLargeModal();
-    }*/
-/*    @Test
+    }
+    @Test
     public void textBoxTest()
     {
         pageTextBox.openWindow();
@@ -42,8 +42,8 @@ public class BaseTest implements IHomePage {
         pageTextBox.setUserPermanentAddress();
         pageTextBox.setSubmitButton();
         pageTextBox.checkInfo(person);
-    }*/
-/*    @Test
+    }
+    @Test
     public void webTableTest()
     {
         webTables.openWindowAndForms();

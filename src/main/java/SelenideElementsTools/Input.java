@@ -3,6 +3,8 @@ package SelenideElementsTools;
 import com.codeborne.selenide.SelenideElement;
 import org.openqa.selenium.By;
 
+import java.io.File;
+
 import static com.codeborne.selenide.Selenide.$;
 public class Input {
     private SelenideElement input;
@@ -15,5 +17,8 @@ public class Input {
     }
     public void setInputClick(){
         input.click();
+    }
+    public void uploadFileInput(File file){
+        input.uploadFile(file);
     }
 }

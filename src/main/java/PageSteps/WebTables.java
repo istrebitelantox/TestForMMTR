@@ -1,16 +1,22 @@
 package PageSteps;
+
 import SelenideElementsTools.Button;
 import SelenideElementsTools.Input;
 import com.codeborne.selenide.Condition;
+import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;
 import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 
+import static com.codeborne.selenide.Condition.exactText;
 import static com.codeborne.selenide.Selenide.$;
+import static com.codeborne.selenide.Selenide.$$;
 
 public class WebTables {
-    private SelenideElement forms =  $(By.xpath("//h5[.='Elements']"));
-    private SelenideElement webTablesFormOpen = $(By.xpath("//span[.='Web Tables']"));
+    private ElementsCollection forms = $$(By.cssSelector("div.category-cards h5"));
+            //$(By.xpath("//h5[.='Elements']"));
+    //private SelenideElement webTablesFormOpen =$$(By.cssSelector("div.element-list")).findBy(text("Web Tables")).find("#item-3");
+    private ElementsCollection webTablesFormOpen =$$(By.cssSelector("ul.menu-list li"));
     private Button addButton = new Button("addNewRecordButton");
     private Input firstNameInput = new Input("firstName");
     private Input lastNameInput = new Input("lastName");
@@ -22,8 +28,8 @@ public class WebTables {
 
     @Step("Открытие формы для заполнения")
     public void openWindowAndForms(){
-        forms.should(Condition.visible).click();
-        webTablesFormOpen.should(Condition.visible).click();
+        forms.find(exactText("Elements")).click();
+        webTablesFormOpen.find(exactText("Web Tables")).click();
         addButton.setBtnClick();
     }
     @Step("Ввод информации о работнике")

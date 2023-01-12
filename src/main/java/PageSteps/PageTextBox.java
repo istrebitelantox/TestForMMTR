@@ -3,16 +3,18 @@ package PageSteps;
 import Persons.Person;
 import SelenideElementsTools.*;
 import com.codeborne.selenide.Condition;
-import com.codeborne.selenide.SelenideElement;
+import com.codeborne.selenide.ElementsCollection;
 import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 
+import static com.codeborne.selenide.Condition.exactText;
 import static com.codeborne.selenide.Selenide.$;
+import static com.codeborne.selenide.Selenide.$$;
 
 public class PageTextBox {
-    private final SelenideElement window = $(By.cssSelector("div.category-cards>div:nth-child(1)"));
+    private final ElementsCollection forms = $$(By.cssSelector("div.category-cards h5"));
             //new CategoryCards(1).getCategory();
-    private final SelenideElement linksPage = $(By.cssSelector("div.accordion > div:nth-child(1) li#item-0"));
+    private final ElementsCollection linksPage = $$(By.cssSelector("ul.menu-list li"));
             //new FormsPicker(1,0).getItem();
     private final Input userName = new Input("userName");
     private final Input userEmail = new Input("userEmail");
@@ -25,8 +27,8 @@ public class PageTextBox {
     private final Button submitButton=new Button("submit");
     @Step("Переход к форме")
     public void openWindow(){
-        window.should(Condition.visible).click();
-        linksPage.should(Condition.visible).click();
+        forms.find(exactText("Elements")).click();
+        linksPage.find(exactText("Text Box")).click();
     }
     @Step("Ввод \"name\"")
     public void setUserName(){

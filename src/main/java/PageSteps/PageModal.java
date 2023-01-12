@@ -1,17 +1,22 @@
 package PageSteps;
 
 import SelenideElementsTools.Button;
+import SelenideElementsTools.CheckText;
 import com.codeborne.selenide.Condition;
+import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;
 import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 
+import static com.codeborne.selenide.Condition.exactText;
 import static com.codeborne.selenide.Selenide.$;
+import static com.codeborne.selenide.Selenide.$$;
 
 public class PageModal {
-    private final SelenideElement window = $(By.cssSelector("div.category-cards>div:nth-child(3)"));
+    CheckText checkText=new CheckText();
+    private final ElementsCollection window = $$(By.cssSelector("div.category-cards h5"));
             //new CategoryCards(3).getCategory();
-    private final SelenideElement modalForm =$(By.cssSelector("div.accordion > div:nth-child(3) li#item-4"));
+    private final ElementsCollection modalForm =$$(By.cssSelector("ul.menu-list li"));
                     //new FormsPicker(3,4).getItem();
     private final Button smallModalButton =new Button("showSmallModal");
     private final Button largeModalButton =new Button("showLargeModal");
@@ -20,9 +25,12 @@ public class PageModal {
     private final SelenideElement textSmall =$(By.cssSelector("div.modal-body"));
     private final SelenideElement textLarge =$(By.cssSelector("div.modal-body>p"));
     @Step("Переход к форме")
+
     public void openWindow(){
-        window.should(Condition.visible).click();
-        modalForm.should(Condition.visible).click();
+        checkText.ssda(window,"Elements","Forms","Alerts, Frame & Windows","Widgets",
+                "Interactions","Book Store Application");
+        window.find(exactText("Alerts, Frame & Windows")).click();
+        modalForm.find(exactText("Modal Dialogs")).click();
     }
     @Step("Открытие мальенького модального окна")
     public void setSmallModal()
@@ -46,7 +54,7 @@ public class PageModal {
     public void checkLargeModalClick(){
         textLarge.should(Condition.text("Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's "));
     }
-    @Step("Закрытие большоного модального окна")
+    @Step("Закрытие большого модального окна")
     public void clickCloseLargeModal(){
         closeLargeModalButton.setBtnClick();
     }
