@@ -2,20 +2,16 @@ package PageSteps;
 
 import Persons.Person;
 import SelenideElementsTools.*;
-import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.ElementsCollection;
 import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 
 import static com.codeborne.selenide.Condition.exactText;
-import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.$$;
 
 public class PageTextBox {
-    private final ElementsCollection forms = $$(By.cssSelector("div.category-cards h5"));
-            //new CategoryCards(1).getCategory();
-    private final ElementsCollection linksPage = $$(By.cssSelector("ul.menu-list li"));
-            //new FormsPicker(1,0).getItem();
+    private final OpenBasePage forms = new OpenBasePage("Elements");
+    private final OpenForms linksPage = new OpenForms("Text Box");
     private final Input userName = new Input("userName");
     private final Input userEmail = new Input("userEmail");
     private final TextArea userCurrentAddress =new TextArea("currentAddress");
@@ -27,8 +23,8 @@ public class PageTextBox {
     private final Button submitButton=new Button("submit");
     @Step("Переход к форме")
     public void openWindow(){
-        forms.find(exactText("Elements")).click();
-        linksPage.find(exactText("Text Box")).click();
+        forms.openBasePage();
+        linksPage.openFormsPage();
     }
     @Step("Ввод \"name\"")
     public void setUserName(){

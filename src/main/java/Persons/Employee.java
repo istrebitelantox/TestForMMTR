@@ -1,6 +1,5 @@
 package Persons;
 
-import SelenideElementsTools.Input;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 

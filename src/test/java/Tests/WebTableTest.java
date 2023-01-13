@@ -8,6 +8,7 @@ public class WebTableTest extends BaseTest implements IEmployee {
     public void webTableTest()
     {
         webTables.openWindowAndForms();
+        webTables.openRegistrationForm();
         webTables.nameInformation(employee.getFirstName(),employee.getLastName());
         webTables.emailInformation(employee.getEmail());
         webTables.ageInformation(employee.getAge());

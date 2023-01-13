@@ -2,6 +2,8 @@ package PageSteps;
 
 import SelenideElementsTools.Button;
 import SelenideElementsTools.CheckText;
+import SelenideElementsTools.OpenBasePage;
+import SelenideElementsTools.OpenForms;
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;
@@ -14,10 +16,8 @@ import static com.codeborne.selenide.Selenide.$$;
 
 public class PageModal {
     CheckText checkText=new CheckText();
-    private final ElementsCollection window = $$(By.cssSelector("div.category-cards h5"));
-            //new CategoryCards(3).getCategory();
-    private final ElementsCollection modalForm =$$(By.cssSelector("ul.menu-list li"));
-                    //new FormsPicker(3,4).getItem();
+    private final OpenBasePage window = new OpenBasePage("Alerts, Frame & Windows");
+   private final OpenForms modalForm =new OpenForms("Modal Dialogs");
     private final Button smallModalButton =new Button("showSmallModal");
     private final Button largeModalButton =new Button("showLargeModal");
     private final Button closeSmallModalButton =new Button("closeSmallModal");
@@ -27,10 +27,9 @@ public class PageModal {
     @Step("Переход к форме")
 
     public void openWindow(){
-        checkText.checkTextOnPage(window,"Elements","Forms","Alerts, Frame & Windows","Widgets",
-                "Interactions","Book Store Application");
-        window.find(exactText("Alerts, Frame & Windows")).click();
-        modalForm.find(exactText("Modal Dialogs")).click();
+        //checkText.checkTextOnPage(window,"Elements","Forms","Alerts, Frame & Windows","Widgets","Interactions","Book Store Application");
+        window.openBasePage();
+        modalForm.openFormsPage();
     }
     @Step("Открытие мальенького модального окна")
     public void setSmallModal()

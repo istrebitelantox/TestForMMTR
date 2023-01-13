@@ -2,6 +2,8 @@ package PageSteps;
 
 import SelenideElementsTools.Button;
 import SelenideElementsTools.Input;
+import SelenideElementsTools.OpenBasePage;
+import SelenideElementsTools.OpenForms;
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;
@@ -16,8 +18,8 @@ import static com.codeborne.selenide.Selenide.*;
 
 public class PracticeForm {
     File file=new File("2.jpg");
-    private ElementsCollection forms = $$(By.cssSelector("div.category-cards h5"));
-    private ElementsCollection practiceform = $$(By.cssSelector("ul.menu-list li"));
+    private OpenBasePage forms = new OpenBasePage("Forms");
+    private OpenForms practiceform = new OpenForms("Practice Form");
     private Input firstNameInput = new Input("firstName");
     private Input lastNameInput = new Input("lastName");
     private Input userEmailInput =new Input("userEmail");
@@ -37,8 +39,8 @@ public class PracticeForm {
 
     @Step("Открытие формы для заполнения")
     public void openWindowAndForms(){
-        forms.find(exactText("Forms")).click();
-        practiceform.find(exactText("Practice Form")).click();
+        forms.openBasePage();
+        practiceform.openFormsPage();
     }
     @Step("Ввод информации о студенте")
     public void nameInfo(String first_name, String last_name) {

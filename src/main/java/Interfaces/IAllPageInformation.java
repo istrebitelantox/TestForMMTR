@@ -8,4 +8,5 @@ public interface IAllPageInformation {
     PageTextBox pageTextBox =new PageTextBox();
     PageModal pageModal =new PageModal();
     PracticeForm practiceForm=new PracticeForm();
+
 }

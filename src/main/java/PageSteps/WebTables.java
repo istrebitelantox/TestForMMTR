@@ -2,21 +2,18 @@ package PageSteps;
 
 import SelenideElementsTools.Button;
 import SelenideElementsTools.Input;
-import com.codeborne.selenide.Condition;
+import SelenideElementsTools.OpenBasePage;
+import SelenideElementsTools.OpenForms;
 import com.codeborne.selenide.ElementsCollection;
-import com.codeborne.selenide.SelenideElement;
 import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 
 import static com.codeborne.selenide.Condition.exactText;
-import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.$$;
 
 public class WebTables {
-    private ElementsCollection forms = $$(By.cssSelector("div.category-cards h5"));
-            //$(By.xpath("//h5[.='Elements']"));
-    //private SelenideElement webTablesFormOpen =$$(By.cssSelector("div.element-list")).findBy(text("Web Tables")).find("#item-3");
-    private ElementsCollection webTablesFormOpen =$$(By.cssSelector("ul.menu-list li"));
+    private OpenBasePage forms = new OpenBasePage("Elements");
+    private OpenForms webTablesFormOpen =new OpenForms("Web Tables");
     private Button addButton = new Button("addNewRecordButton");
     private Input firstNameInput = new Input("firstName");
     private Input lastNameInput = new Input("lastName");
@@ -26,10 +23,13 @@ public class WebTables {
     private Input departmentInput = new Input("department");
     private Button submitButton =new Button("submit");
 
-    @Step("Открытие формы для заполнения")
+    @Step("Открытие формы \"Web Table\"")
     public void openWindowAndForms(){
-        forms.find(exactText("Elements")).click();
-        webTablesFormOpen.find(exactText("Web Tables")).click();
+        forms.openBasePage();
+        webTablesFormOpen.openFormsPage();
+    }
+    @Step("Открытие \"Registration Form\"")
+    public void openRegistrationForm(){
         addButton.setBtnClick();
     }
     @Step("Ввод информации о работнике")
