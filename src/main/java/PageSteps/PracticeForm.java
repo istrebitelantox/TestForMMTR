@@ -1,40 +1,29 @@
 package PageSteps;
 
-import SelenideElementsTools.Button;
-import SelenideElementsTools.Input;
-import SelenideElementsTools.OpenBasePage;
-import SelenideElementsTools.OpenForms;
-import com.codeborne.selenide.Condition;
-import com.codeborne.selenide.ElementsCollection;
+import SelenideElementsTools.*;
 import com.codeborne.selenide.SelenideElement;
 import io.qameta.allure.Step;
-
 import org.openqa.selenium.By;
 
 import java.io.File;
 
-import static com.codeborne.selenide.Condition.exactText;
-import static com.codeborne.selenide.Selenide.*;
+import static com.codeborne.selenide.Selenide.$;
 
 public class PracticeForm {
-    File file=new File("2.jpg");
-    private OpenBasePage forms = new OpenBasePage("Forms");
-    private OpenForms practiceform = new OpenForms("Practice Form");
-    private Input firstNameInput = new Input("firstName");
-    private Input lastNameInput = new Input("lastName");
-    private Input userEmailInput =new Input("userEmail");
-    private SelenideElement male = $(By.xpath("//label[@class='custom-control-label']"));
-    private Input mobileInput = new Input("userNumber");
-    private Input dateOfBirthInput =new Input("dateOfBirthInput");
-    private SelenideElement month =$(By.xpath("//select[@class='react-datepicker__month-select']"));
-    private SelenideElement june =$(By.xpath("//option[@value='5']"));
-    private SelenideElement year =$(By.xpath("//select[@class='react-datepicker__month-select']"));
-    private SelenideElement year_2003 =$(By.xpath("//option[@value='2003']"));
-    private SelenideElement dayofbirth =$(By.xpath("//div[@aria-label='Choose Monday, June 9th, 2003']"));
-    private Input uploadInput = new Input("uploadPicture");
-    private SelenideElement currentAddressText = $(By.xpath("//textarea[@id='currentAddress']"));
-    private Button submitButton =new Button("submit");
-    private Button closeButton =new Button("closeLargeModal");
+    File file=new File("avatar.jpg");
+    private final OpenBasePage forms = new OpenBasePage("Forms");
+    private final OpenForms practiceform = new OpenForms("Practice Form");
+    private final Input firstNameInput = new Input("firstName");
+    private final Input lastNameInput = new Input("lastName");
+    private final Input userEmailInput =new Input("userEmail");
+    private final Label male = new Label("genterWrapper","Male");
+    private final Label sport=new Label("hobbiesWrapper","Sports");
+    private final Input mobileInput = new Input("userNumber");
+    private final Input dateOfBirthInput =new Input("dateOfBirthInput");
+    private final Input uploadInput = new Input("uploadPicture");
+    private final TextArea currentAddressText = new TextArea("currentAddress");
+    private final Button submitButton =new Button("submit");
+    private final Button closeButton =new Button("closeLargeModal");
 
 
     @Step("Открытие формы для заполнения")
@@ -44,6 +33,7 @@ public class PracticeForm {
     }
     @Step("Ввод информации о студенте")
     public void nameInfo(String first_name, String last_name) {
+        firstNameInput.sadsda();
         firstNameInput.setInputValue(first_name);
         lastNameInput.setInputValue(last_name);
     }
@@ -52,8 +42,8 @@ public class PracticeForm {
         userEmailInput.setInputValue(user_Email);
     }
     @Step("Ввод пола студента")
-    public void genderInfo() {
-        male.should(Condition.visible).click();
+    public void setGenderInfo() {
+        male.clickLabel();
     }
     @Step("Ввод номера телефона студента")
     public void mobileInfo(String Mobile) {
@@ -61,12 +51,19 @@ public class PracticeForm {
     }
     @Step("Ввод даты рождения студента")
     public void dayOfBirthInfo() {
-        dateOfBirthInput.setInputClick();
-        month.click();
-        june.click();
-        year.click();
-        year_2003.click();
-        dayofbirth.click();
+        dateOfBirthInput.inputDate("06.09.2003");
+/*        dateOfBirthInput.setInputValue("06.09.2003");
+        for (int i = 0; i < 3; i++) {
+            dateOfBirthInput.sendKeysCtrlAndLeft();
+        }
+        while (dateOfBirthInput.getInputValue().length()>10){
+            dateOfBirthInput.sendKeyDel();
+        }
+        dateOfBirthInput.sendKeyEnt();*/
+    }
+    @Step
+    public void setHobbies(){
+        sport.clickLabel();
     }
     @Step("Добавление фотографии студента")
     public void inputPicture(){
@@ -74,14 +71,14 @@ public class PracticeForm {
     }
     @Step("Ввод адреса студента")
     public void currentAddressInfo(String current_Address){
-        currentAddressText.val(current_Address);
+        currentAddressText.setTextAreaValue(current_Address);
     }
     @Step("Подтверждение информации о новом студенте")
-    public void inputSubmit(){
+    public void clickSubmit(){
         submitButton.setBtnClick();
     }
     @Step("Закрытие заполненой формы")
-    public void inputClose(){
+    public void clickClose(){
         closeButton.setBtnClick();
     }
 }

@@ -5,19 +5,16 @@ import SelenideElementsTools.CheckText;
 import SelenideElementsTools.OpenBasePage;
 import SelenideElementsTools.OpenForms;
 import com.codeborne.selenide.Condition;
-import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;
 import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 
-import static com.codeborne.selenide.Condition.exactText;
 import static com.codeborne.selenide.Selenide.$;
-import static com.codeborne.selenide.Selenide.$$;
 
 public class PageModal {
     CheckText checkText=new CheckText();
     private final OpenBasePage window = new OpenBasePage("Alerts, Frame & Windows");
-   private final OpenForms modalForm =new OpenForms("Modal Dialogs");
+    private final OpenForms modalForm =new OpenForms("Modal Dialogs");
     private final Button smallModalButton =new Button("showSmallModal");
     private final Button largeModalButton =new Button("showLargeModal");
     private final Button closeSmallModalButton =new Button("closeSmallModal");

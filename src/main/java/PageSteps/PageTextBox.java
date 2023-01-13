@@ -2,12 +2,7 @@ package PageSteps;
 
 import Persons.Person;
 import SelenideElementsTools.*;
-import com.codeborne.selenide.ElementsCollection;
 import io.qameta.allure.Step;
-import org.openqa.selenium.By;
-
-import static com.codeborne.selenide.Condition.exactText;
-import static com.codeborne.selenide.Selenide.$$;
 
 public class PageTextBox {
     private final OpenBasePage forms = new OpenBasePage("Elements");
@@ -48,7 +43,7 @@ public class PageTextBox {
     }
     @Step("Проверка введённой информации")
     public void checkInfo(Person person){
-        name.pCheckText(person.getName());
+        name.pCheckText(person.getFirstName());
         email.pCheckText(person.getEmail());
         currentAddress.pCheckText(person.getCurrentAddress());
         permanentAddress.pCheckText(person.getPermanentAddress());

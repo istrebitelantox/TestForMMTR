@@ -4,12 +4,7 @@ import SelenideElementsTools.Button;
 import SelenideElementsTools.Input;
 import SelenideElementsTools.OpenBasePage;
 import SelenideElementsTools.OpenForms;
-import com.codeborne.selenide.ElementsCollection;
 import io.qameta.allure.Step;
-import org.openqa.selenium.By;
-
-import static com.codeborne.selenide.Condition.exactText;
-import static com.codeborne.selenide.Selenide.$$;
 
 public class WebTables {
     private OpenBasePage forms = new OpenBasePage("Elements");
