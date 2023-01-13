@@ -1,10 +1,9 @@
 package Tests;
 
-import Interfaces.IPageTextBox;
 import Interfaces.IPerson;
 import org.junit.jupiter.api.Test;
 
-public class TextBoxTest extends BaseTest implements IPerson, IPageTextBox {
+public class TextBoxTest extends BaseTest implements IPerson{
     @Test
     public void textBoxTest()
     {

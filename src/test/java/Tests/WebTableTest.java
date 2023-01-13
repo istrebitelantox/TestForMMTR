@@ -1,10 +1,9 @@
 package Tests;
 
 import Interfaces.IEmployee;
-import Interfaces.IWebTables;
 import org.junit.jupiter.api.Test;
 
-public class WebTableTest extends BaseTest implements IEmployee, IWebTables {
+public class WebTableTest extends BaseTest implements IEmployee {
     @Test
     public void webTableTest()
     {

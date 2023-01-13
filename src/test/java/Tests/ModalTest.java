@@ -1,9 +1,8 @@
 package Tests;
 
-import Interfaces.IPageModal;
 import org.junit.jupiter.api.Test;
 
-public class ModalTest extends BaseTest implements IPageModal {
+public class ModalTest extends BaseTest{
     @Test
     public void modalTest()
     {

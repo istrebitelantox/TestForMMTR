@@ -27,7 +27,7 @@ public class PageModal {
     @Step("Переход к форме")
 
     public void openWindow(){
-        checkText.ssda(window,"Elements","Forms","Alerts, Frame & Windows","Widgets",
+        checkText.checkTextOnPage(window,"Elements","Forms","Alerts, Frame & Windows","Widgets",
                 "Interactions","Book Store Application");
         window.find(exactText("Alerts, Frame & Windows")).click();
         modalForm.find(exactText("Modal Dialogs")).click();
