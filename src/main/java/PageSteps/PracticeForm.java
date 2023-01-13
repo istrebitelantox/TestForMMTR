@@ -1,18 +1,14 @@
 package PageSteps;
 
 import SelenideElementsTools.*;
-import com.codeborne.selenide.SelenideElement;
 import io.qameta.allure.Step;
-import org.openqa.selenium.By;
 
 import java.io.File;
-
-import static com.codeborne.selenide.Selenide.$;
 
 public class PracticeForm {
     File file=new File("avatar.jpg");
     private final OpenBasePage forms = new OpenBasePage("Forms");
-    private final OpenForms practiceform = new OpenForms("Practice Form");
+    private final OpenForms practiceForm = new OpenForms("Practice Form");
     private final Input firstNameInput = new Input("firstName");
     private final Input lastNameInput = new Input("lastName");
     private final Input userEmailInput =new Input("userEmail");
@@ -29,11 +25,10 @@ public class PracticeForm {
     @Step("Открытие формы для заполнения")
     public void openWindowAndForms(){
         forms.openBasePage();
-        practiceform.openFormsPage();
+        practiceForm.openFormsPage();
     }
     @Step("Ввод информации о студенте")
     public void nameInfo(String first_name, String last_name) {
-        firstNameInput.sadsda();
         firstNameInput.setInputValue(first_name);
         lastNameInput.setInputValue(last_name);
     }
@@ -52,14 +47,6 @@ public class PracticeForm {
     @Step("Ввод даты рождения студента")
     public void dayOfBirthInfo() {
         dateOfBirthInput.inputDate("06.09.2003");
-/*        dateOfBirthInput.setInputValue("06.09.2003");
-        for (int i = 0; i < 3; i++) {
-            dateOfBirthInput.sendKeysCtrlAndLeft();
-        }
-        while (dateOfBirthInput.getInputValue().length()>10){
-            dateOfBirthInput.sendKeyDel();
-        }
-        dateOfBirthInput.sendKeyEnt();*/
     }
     @Step
     public void setHobbies(){

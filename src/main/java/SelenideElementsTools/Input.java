@@ -33,6 +33,7 @@ public class Input {
     }
     public void sendKeyEnt(){
         input.sendKeys(Keys.ENTER);
+
     }
     public void sendKeyDel(){
         input.sendKeys(Keys.DELETE);

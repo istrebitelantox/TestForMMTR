@@ -4,6 +4,8 @@ import Interfaces.IAllPageInformation;
 import com.codeborne.selenide.Configuration;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
+
+
 public class BaseTest implements IAllPageInformation {
     @BeforeAll
     static void beforeConfig() {
