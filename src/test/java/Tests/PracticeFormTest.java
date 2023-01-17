@@ -2,9 +2,11 @@ package Tests;
 
 import Interfaces.IPerson;
 import com.codeborne.selenide.Selenide;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 public class PracticeFormTest extends BaseTest implements IPerson {
+    @DisplayName("Тестирование \"Practice Form\"")
     @Test
     public void practiceFormTest(){
         practiceForm.openWindowAndForms();
@@ -17,7 +19,6 @@ public class PracticeFormTest extends BaseTest implements IPerson {
         practiceForm.inputPicture();
         practiceForm.currentAddressInfo(person.getCurrentAddress());
         practiceForm.clickSubmit();
-        Selenide.sleep(9000);
         practiceForm.clickClose();
 
     }

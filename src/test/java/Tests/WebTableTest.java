@@ -1,9 +1,11 @@
 package Tests;
 
 import Interfaces.IEmployee;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 public class WebTableTest extends BaseTest implements IEmployee {
+    @DisplayName("Тестирование \"Web Tables\"")
     @Test
     public void webTableTest()
     {

@@ -1,8 +1,10 @@
 package Tests;
 
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 public class ModalTest extends BaseTest{
+    @DisplayName("Тестирование \"Modal Dialogs\"")
     @Test
     public void modalTest()
     {
