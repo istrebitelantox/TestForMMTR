@@ -1,8 +1,8 @@
 package SelenideElementsTools;
 
 import com.codeborne.selenide.WebDriverProvider;
+import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.Capabilities;
-import org.openqa.selenium.Dimension;
 import org.openqa.selenium.PageLoadStrategy;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
@@ -14,14 +14,17 @@ public class WebDriver implements WebDriverProvider {
     @Nonnull
     @Override
     public org.openqa.selenium.WebDriver createDriver(@Nonnull Capabilities capabilities) {
-        System.setProperty("webdriver.chrome.driver","/home/yuriy/Documents/chromedriver");
-        ChromeOptions options=new ChromeOptions();
-        options.addArguments("--headless");
+        WebDriverManager.chromedriver().setup();
+        //System.setProperty("webdriver.chrome.driver","/home/yuriy/Documents/chromedriver");
+        ChromeOptions options=new ChromeOptions()
+            .addArguments("--no-sandbox")
+            .addArguments("--disable-gpu")
+            .addArguments("--window-size=1920,1080")
+            .addArguments("--headless")
+            .merge(capabilities);
         options.setPageLoadStrategy(PageLoadStrategy.EAGER);
         ChromeDriver driver=new ChromeDriver(options);
-        //driver.get("https://demoqa.com/");
-        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-        driver.manage().window().maximize();
+        driver.manage().timeouts().pageLoadTimeout(30, TimeUnit.SECONDS);
         return driver;
     }
 }

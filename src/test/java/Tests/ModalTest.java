@@ -2,6 +2,7 @@ package Tests;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import org.openqa.selenium.JavascriptExecutor;
 
 public class ModalTest extends BaseTest{
     @DisplayName("Тестирование \"Modal Dialogs\"")
