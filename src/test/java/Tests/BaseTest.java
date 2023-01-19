@@ -1,21 +1,18 @@
 package Tests;
 
 import Interfaces.IAllPageInformation;
-import SelenideElementsTools.WebDriver;
+import SelenideElementsTools.LocalWebDriver;
 import com.codeborne.selenide.Configuration;
-import org.junit.jupiter.api.AfterEach;
+import com.codeborne.selenide.WebDriverRunner;
 import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.BeforeEach;
-import org.openqa.selenium.Capabilities;
+import org.openqa.selenium.Dimension;
 
 
 public class BaseTest implements IAllPageInformation {
     @BeforeAll
     static void beforeConfig() {
-        Configuration.browser = WebDriver.class.getName();
-    }
-    @BeforeEach
-    public void openHomePage(){
+        Configuration.browser = LocalWebDriver.class.getName();
         homePage.getBaseUrl();
+        WebDriverRunner.getWebDriver().manage().window().setSize(new Dimension(1920,1080));
     }
 }

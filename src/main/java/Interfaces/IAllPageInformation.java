@@ -1,7 +1,11 @@
 package Interfaces;
 
 import PageSteps.*;
-import SelenideElementsTools.WebDriver;
+import PageSteps.AlertsFrameAndWindows.PageModal;
+import PageSteps.Elements.PageTextBox;
+import PageSteps.Elements.WebTables;
+import PageSteps.Forms.PracticeForm;
+import SelenideElementsTools.LocalWebDriver;
 
 public interface IAllPageInformation {
     HomePage homePage=new HomePage();
@@ -10,5 +14,5 @@ public interface IAllPageInformation {
     PageModal pageModal =new PageModal();
     PracticeForm practiceForm=new PracticeForm();
 
-    WebDriver driver=new WebDriver();
+    LocalWebDriver driver=new LocalWebDriver();
 }
