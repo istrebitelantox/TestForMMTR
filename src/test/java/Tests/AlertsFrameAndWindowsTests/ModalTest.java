@@ -14,7 +14,7 @@ public class ModalTest extends BaseTest {
     @Test
     public void modalTest()
     {
-        pageModal.openWindow();
+        pageModal.openModalForm();
         pageModal.setSmallModal();
         pageModal.checkSmallModalClick();
         pageModal.clickCloseSmallModal();

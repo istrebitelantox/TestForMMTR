@@ -3,7 +3,6 @@ package Tests.ElementsTests;
 import Interfaces.IPerson;
 import Tests.BaseTest;
 import io.qameta.allure.Feature;
-import io.qameta.allure.Features;
 import io.qameta.allure.Link;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -14,12 +13,12 @@ public class TextBoxTest extends BaseTest implements IPerson{
     @Test
     public void textBoxTest()
     {
-        pageTextBox.openWindow();
-        pageTextBox.setUserName();
-        pageTextBox.setUserEmail();
-        pageTextBox.setUserCurrentAddress();
-        pageTextBox.setUserPermanentAddress();
-        pageTextBox.setSubmitButton();
+        pageTextBox.openTextBoxForm();
+        pageTextBox.inputUserName(person.getFirstName());
+        pageTextBox.inputUserEmail(person.getEmail());
+        pageTextBox.inputUserCurrentAddress(person.getCurrentAddress());
+        pageTextBox.inputUserPermanentAddress(person.getPermanentAddress());
+        pageTextBox.clickSubmitButton();
         pageTextBox.checkInfo(person);
     }
 }

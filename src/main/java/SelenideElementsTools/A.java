@@ -6,11 +6,15 @@ import org.openqa.selenium.By;
 import static com.codeborne.selenide.Selenide.$;
 
 public class A {
-    private SelenideElement a;
+    private final SelenideElement a;
     public A(String aID){
-        this.a=$(By.cssSelector("a#"+aID));
+        a=$(By.cssSelector("a#"+aID));
     }
     public void setA(String value){
         a.setValue(value);
     }
+    public void clickA(){
+        a.click();
+    }
+
 }

@@ -21,9 +21,8 @@ public class LocalWebDriver implements WebDriverProvider {
             .addArguments("--no-sandbox")
             .addArguments("--disable-gpu")
             .addArguments("--window-size=1920,1080")
-            .addArguments("--headless")
-            .merge(capabilities);
-        options.setCapability(PAGE_LOAD_STRATEGY, "normal");
+            .addArguments("--headless");
+        options.setCapability(PAGE_LOAD_STRATEGY, "eager");
         WebDriver driver=new ChromeDriver(options);
         driver.manage().timeouts().scriptTimeout(Duration.ofSeconds(420));
         return driver;

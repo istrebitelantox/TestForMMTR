@@ -2,8 +2,8 @@ package PageSteps.AlertsFrameAndWindows;
 
 import SelenideElementsTools.Button;
 import SelenideElementsTools.CheckText;
-import SelenideElementsTools.OpenBasePage;
-import SelenideElementsTools.OpenForms;
+import SelenideElementsTools.BasePage;
+import SelenideElementsTools.Forms;
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.SelenideElement;
 import io.qameta.allure.Step;
@@ -13,8 +13,8 @@ import static com.codeborne.selenide.Selenide.$;
 
 public class PageModal {
     CheckText checkText=new CheckText();
-    private final OpenBasePage window = new OpenBasePage("Alerts, Frame & Windows");
-    private final OpenForms modalForm =new OpenForms("Modal Dialogs");
+    private final BasePage window = new BasePage("Alerts, Frame & Windows");
+    private final Forms modalForm =new Forms("Modal Dialogs");
     private final Button smallModalButton =new Button("showSmallModal");
     private final Button largeModalButton =new Button("showLargeModal");
     private final Button closeSmallModalButton =new Button("closeSmallModal");
@@ -23,7 +23,7 @@ public class PageModal {
     private final SelenideElement textLarge =$(By.cssSelector("div.modal-body>p"));
     @Step("Переход к форме")
 
-    public void openWindow(){
+    public void openModalForm(){
         //checkText.checkTextOnPage(window,"Elements","Forms","Alerts, Frame & Windows","Widgets","Interactions","Book Store Application");
         window.openBasePage();
         modalForm.openFormsPage();
@@ -48,7 +48,8 @@ public class PageModal {
     }
     @Step("Проверка текста в большом модальном окне")
     public void checkLargeModalClick(){
-        textLarge.should(Condition.text("Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's "));
+        textLarge.should(Condition.text("Lorem Ipsum is simply dummy text of the printing and typesetting industry." +
+                " Lorem Ipsum has been the industry's "));
     }
     @Step("Закрытие большого модального окна")
     public void clickCloseLargeModal(){

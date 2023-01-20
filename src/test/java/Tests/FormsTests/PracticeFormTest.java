@@ -12,15 +12,19 @@ public class PracticeFormTest extends BaseTest implements IPerson {
     @DisplayName("Тестирование \"Practice Form\"")
     @Test
     public void practiceFormTest(){
-        practiceForm.openWindowAndForms();
-        practiceForm.nameInfo(person.getFirstName(), person.getLastName());
-        practiceForm.emailInfo(person.getEmail());
-        practiceForm.setGenderInfo();
-        practiceForm.mobileInfo(person.getMobile());
-        practiceForm.dayOfBirthInfo();
-        practiceForm.setHobbies();
+        practiceForm.openPracticeForm();
+        practiceForm.inputFirstName(person.getFirstName());
+        practiceForm.inputLastName(person.getLastName());
+        practiceForm.inputEmail(person.getEmail());
+        practiceForm.setGender(person.getGender());
+        practiceForm.inputMobile(person.getMobile());
+        practiceForm.inputDayOfBirth(person.getDateOfBirth());
+        practiceForm.inputSubject(person.getSubject());
+        practiceForm.setHobbies(person.getHobie());
         practiceForm.inputPicture();
-        practiceForm.currentAddressInfo(person.getCurrentAddress());
+        practiceForm.inputCurrentAddress(person.getCurrentAddress());
+        practiceForm.inputState(person.getState());
+        practiceForm.inputCity(person.getCity());
         practiceForm.clickSubmit();
         practiceForm.clickClose();
 

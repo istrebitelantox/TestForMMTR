@@ -7,13 +7,16 @@ import org.openqa.selenium.By;
 
 import static com.codeborne.selenide.Selenide.$$;
 
-public class OpenBasePage {
-    private ElementsCollection first=$$(By.cssSelector("div.category-cards h5"));
-    private SelenideElement element;
-    public OpenBasePage(String text){
-        element=first.find(Condition.exactText(text));
+public class Forms {
+
+    private final ElementsCollection second=$$(By.cssSelector("ul.menu-list li"));
+    private final SelenideElement element;
+    public Forms(String text){
+        element=second.find(Condition.exactText(text));
     }
-    public void openBasePage(){
+
+
+    public void openFormsPage(){
         element.click();
     }
 }

@@ -13,13 +13,14 @@ public class WebTableTest extends BaseTest implements IEmployee {
     @Test
     public void webTableTest()
     {
-        webTables.openWindowAndForms();
+        webTables.openWebTableForm();
         webTables.openRegistrationForm();
-        webTables.nameInformation(employee.getFirstName(),employee.getLastName());
-        webTables.emailInformation(employee.getEmail());
-        webTables.ageInformation(employee.getAge());
-        webTables.salaryInformation(employee.getSalary());
-        webTables.departmentInformation(employee.getDepartment());
-        webTables.inputSubmit();
+        webTables.inputFirstName(employee.getFirstName());
+        webTables.inputLastName(employee.getLastName());
+        webTables.inputEmail(employee.getEmail());
+        webTables.inputAge(employee.getAge());
+        webTables.inputSalary(employee.getSalary());
+        webTables.inputDepartment(employee.getDepartment());
+        webTables.clickSubmit();
     }
 }

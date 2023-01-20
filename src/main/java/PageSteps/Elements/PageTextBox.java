@@ -5,40 +5,40 @@ import SelenideElementsTools.*;
 import io.qameta.allure.Step;
 
 public class PageTextBox {
-    private final OpenBasePage forms = new OpenBasePage("Elements");
-    private final OpenForms linksPage = new OpenForms("Text Box");
-    private final Input userName = new Input("userName");
-    private final Input userEmail = new Input("userEmail");
-    private final TextArea userCurrentAddress =new TextArea("currentAddress");
-    private final TextArea userPermanentAddress = new TextArea("permanentAddress");
+    private final BasePage forms = new BasePage("Elements");
+    private final Forms linksPage = new Forms("Text Box");
+    private final Input userNameInput = new Input("userName");
+    private final Input userEmailInput = new Input("userEmail");
+    private final TextArea userCurrentAddressTextArea =new TextArea("currentAddress");
+    private final TextArea userPermanentAddressTextArea = new TextArea("permanentAddress");
     private final P name =new P("name");
     private final P email = new P("email");
     private final P currentAddress = new P("currentAddress");
     private final P permanentAddress = new P("permanentAddress");
     private final Button submitButton=new Button("submit");
     @Step("Переход к форме")
-    public void openWindow(){
+    public void openTextBoxForm(){
         forms.openBasePage();
         linksPage.openFormsPage();
     }
     @Step("Ввод \"name\"")
-    public void setUserName(){
-        userName.setInputValue("Yuriy");
+    public void inputUserName(String firstName){
+        userNameInput.setInputValue(firstName);
     }
     @Step("Ввод \"email\"")
-    public void setUserEmail(){
-        userEmail.setInputValue("dareon@gmail.com");
+    public void inputUserEmail(String email){
+        userEmailInput.setInputValue(email);
     }
     @Step("Ввод \"current address\"")
-    public void setUserCurrentAddress(){
-        userCurrentAddress.setTextAreaValue("ул. Советская 29");
+    public void inputUserCurrentAddress(String currentAddress){
+        userCurrentAddressTextArea.setTextAreaValue(currentAddress);
     }
     @Step("Ввод \"permanent address\"")
-    public void setUserPermanentAddress(){
-        userPermanentAddress.setTextAreaValue("ул. Кукушкина 19");
+    public void inputUserPermanentAddress(String permanentAddress){
+        userPermanentAddressTextArea.setTextAreaValue(permanentAddress);
     }
     @Step("Принятие формы")
-    public void setSubmitButton(){
+    public void clickSubmitButton(){
         submitButton.setBtnClick();
     }
     @Step("Проверка введённой информации")
