@@ -9,7 +9,6 @@ public class CheckText {
     public void checkTextOnPage(ElementsCollection elements, String... value){
         for(String ws:value) {
             System.out.println(elements.find(Condition.exactText(ws)));
-
         }
         System.out.println(Arrays.toString(value));
     }

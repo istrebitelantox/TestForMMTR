@@ -1,4 +1,4 @@
-package PageSteps;
+package pages;
 
 import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.SelenideElement;

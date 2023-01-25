@@ -1,11 +1,11 @@
 package Interfaces;
 
-import PageSteps.AlertsFrameAndWindows.PageModal;
-import PageSteps.Elements.PageTextBox;
-import PageSteps.Elements.WebTables;
-import PageSteps.Forms.PracticeForm;
-import PageSteps.HomePage;
-import PageSteps.Elements.PageLinks;
+import pages.AlertsFrameAndWindows.PageModal;
+import pages.Elements.PageTextBox;
+import pages.Elements.WebTables;
+import pages.Forms.PracticeForm;
+import pages.HomePage;
+import pages.Elements.PageLinks;
 
 public interface IAllPageInformation {
     HomePage homePage=new HomePage();
