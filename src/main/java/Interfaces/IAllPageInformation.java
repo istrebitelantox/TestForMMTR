@@ -1,6 +1,7 @@
 package Interfaces;
 
 import pages.AlertsFrameAndWindows.PageModal;
+import pages.Elements.Down;
 import pages.Elements.PageTextBox;
 import pages.Elements.WebTables;
 import pages.Forms.PracticeForm;
@@ -14,4 +15,5 @@ public interface IAllPageInformation {
     PageModal pageModal =new PageModal();
     PracticeForm practiceForm=new PracticeForm();
     PageLinks pageLinks=new PageLinks();
+    Down down=new Down();
 }

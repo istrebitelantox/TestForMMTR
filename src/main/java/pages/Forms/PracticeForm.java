@@ -5,7 +5,6 @@ import SelenideElementsTools.*;
 import java.io.File;
 
 public class PracticeForm {
-    public File file=new File("src/main/resources/avatar.jpg");
     public final BasePage forms = new BasePage("Forms");
     public final Forms practiceForm = new Forms("Practice Form");
     public final Input firstNameInput = new Input("firstName");

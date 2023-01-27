@@ -1,7 +1,7 @@
 package Tests;
 
 import Interfaces.IAllPageInformation;
-import SelenideElementsTools.LocalWebDriver;
+import SelenideElementsTools.webDrivers.LocalWebDriver;
 import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.WebDriverRunner;
 import org.junit.jupiter.api.BeforeAll;

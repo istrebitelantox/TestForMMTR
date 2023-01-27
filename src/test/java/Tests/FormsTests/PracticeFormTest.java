@@ -8,6 +8,8 @@ import io.qameta.allure.Step;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
+import java.io.File;
+
 @Feature("FormsTests")
 public class PracticeFormTest extends BaseTest implements IPerson {
     @Link(name = "Ссылка на Practice Form", url = "https://demoqa.com/automation-practice-form")
@@ -23,7 +25,7 @@ public class PracticeFormTest extends BaseTest implements IPerson {
         step_7(person.getDateOfBirth());
         step_8(person.getSubject());
         step_9(person.getHobie());
-        step_10();
+        step_10(person.getAvatar());
         step_11(person.getCurrentAddress());
         step_12(person.getState());
         step_13(person.getCity());
@@ -81,8 +83,8 @@ public class PracticeFormTest extends BaseTest implements IPerson {
     }
 
     @Step("Добавление фотографии студента")
-    public void step_10() {
-        practiceForm.uploadInput.uploadFileInput(practiceForm.file);
+    public void step_10(File avatar) {
+        practiceForm.uploadInput.uploadFileInput(avatar);
     }
 
     @Step("Ввод адреса студента")
