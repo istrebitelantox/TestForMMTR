@@ -1,22 +1,22 @@
 pipeline {
-    agent {
-        docker{
-        image "maven:3.6.0-jdk-13"
-        label "docker"
-        }
+    agent any
+
+    tools {
+        maven "3.6.0"
     }
+
     stages {
-        stage('Test') {
+        stage("Build") {
             steps {
                 sh "mvn -version"
                 sh "mvn clean install"
-                echo 'Hello World'
             }
         }
     }
-    post{
-        always{
-        cleanWs()
+
+    post {
+        always {
+            cleanWs()
         }
     }
 }
