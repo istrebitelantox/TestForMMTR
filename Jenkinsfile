@@ -1,18 +1,17 @@
 pipeline {
     environment {
-        JAVA_TOOL_OPTIONS = "-Duser.home=/home/jenkins"
+        JAVA_TOOL_OPTIONS = "-Duser.home=/var/lib/jenkins"
     }
     agent {
         dockerfile {
             label "docker"
-            args "-v /tmp/maven:/home/jenkins/.m2 -e MAVEN_CONFIG=/home/jenkins/.m2"
+            args "-v /tmp/maven:/var/lib/jenkins/.m2 -e MAVEN_CONFIG=/var/lib/jenkins/.m2"
         }
     }
 
     stages {
         stage("Build") {
             steps {
-                sh "sudo yum install openssh-clients"
                 sh "ssh -V"
                 sh "mvn -version"
                 sh "mvn clean install"
