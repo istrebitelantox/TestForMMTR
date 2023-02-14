@@ -16,6 +16,7 @@ pipeline {
                 sh "ssh -V"
                 sh "mvn -version"
                 sh "mvn clean install"
+                sh 'mvn clean verify -DskipITs=true';junit '**/target/surefire-reports/TEST-*.xml'archive 'target/*.jar'
             }
         }
     }
