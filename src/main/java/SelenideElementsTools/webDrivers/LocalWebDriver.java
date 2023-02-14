@@ -34,7 +34,6 @@ public class LocalWebDriver implements WebDriverProvider {
 
         WebDriver driver=new ChromeDriver(options);
         driver.manage().timeouts().scriptTimeout(Duration.ofSeconds(420));
-        driver.get("http://www.google.com");
         return driver;
     }
 }
