@@ -12,7 +12,7 @@ public class BaseTest implements IAllPageInformation {
     @BeforeAll
     static void beforeConfig() {
         Configuration.browser = LocalWebDriver.class.getName();
-        homePage.getBaseUrl();
+        Configuration.baseUrl="https://demoqa.com/";
         WebDriverRunner.getWebDriver().manage().window().setSize(new Dimension(1920,1080));
     }
 }
