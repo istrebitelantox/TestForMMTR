@@ -7,4 +7,5 @@ pipeline {
                 // bat '.\\mvnw clean compile'
             }
         }
+    }
 }
