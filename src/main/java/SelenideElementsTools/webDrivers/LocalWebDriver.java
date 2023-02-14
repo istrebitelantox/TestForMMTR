@@ -19,6 +19,7 @@ public class LocalWebDriver implements WebDriverProvider {
     @Nonnull
     @Override
     public org.openqa.selenium.WebDriver createDriver(@Nonnull Capabilities capabilities) {
+        System.setProperty("webdriver.chrome.driver","/home/yuriy/Downloads/chromedriver/chromedriver");
         WebDriverManager.chromedriver().setup();
         ChromeOptions options=new ChromeOptions()
             .addArguments("--no-sandbox")
