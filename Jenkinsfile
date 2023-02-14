@@ -1,27 +1,26 @@
+
 pipeline {
-    environment {
-        JAVA_TOOL_OPTIONS = "-Duser.home=/home/jenkins"
-    }
-    agent {
-        dockerfile {
-            label "docker"
-            args "-v /tmp/maven:/home/jenkins/.m2 -e MAVEN_CONFIG=/home/jenkins/.m2"
-        }
-    }
+    agent any
 
     stages {
-        stage("Build") {
+        stage('Build') {
             steps {
-                sh "ssh -V"
-                sh "mvn -version"
-                sh "mvn clean install"
+                git 'https://github.com/istrebitelantox/TestForMMTR.git'
+                sh './mvnw clean compile'
+                // bat '.\\mvnw clean compile'
             }
         }
-    }
+        stage('Test') {
+            steps {
+                sh './mvnw test'
+                // bat '.\\mvnw test'
+            }
 
-    post {
-        always {
-            cleanWs()
+            post {
+                always {
+                    junit '**/target/surefire-reports/TEST-*.xml'
+                }
+            }
         }
     }
 }
