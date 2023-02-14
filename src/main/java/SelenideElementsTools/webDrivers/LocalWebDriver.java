@@ -24,7 +24,8 @@ public class LocalWebDriver implements WebDriverProvider {
             .addArguments("--no-sandbox")
             .addArguments("--disable-gpu")
             .addArguments("--window-size=1920,1080")
-            .addArguments("--headless");
+            .addArguments("--headless")
+            .addArguments("--disable-dev-shm-usage");
         options.setCapability(PAGE_LOAD_STRATEGY, "eager");
 
         Map<String, Object> prefs = new HashMap<>();
