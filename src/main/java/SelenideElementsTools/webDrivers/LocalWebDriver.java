@@ -19,7 +19,6 @@ public class LocalWebDriver implements WebDriverProvider {
     @Nonnull
     @Override
     public org.openqa.selenium.WebDriver createDriver(@Nonnull Capabilities capabilities) {
-        System.setProperty("webdriver.chrome.driver","/home/yuriy/Downloads/chromedriver/chromedriver");
         WebDriverManager.chromedriver().setup();
         ChromeOptions options=new ChromeOptions()
             .addArguments("--no-sandbox")
@@ -28,6 +27,7 @@ public class LocalWebDriver implements WebDriverProvider {
             .addArguments("--headless")
             .addArguments("--disable-dev-shm-usage");
         options.setCapability(PAGE_LOAD_STRATEGY, "eager");
+        options.setCapability("webdriver.chrome.driver","/home/yuriy/Downloads/chromedriver/chromedriver");
 
         Map<String, Object> prefs = new HashMap<>();
         prefs.put("download.default_directory", new File(".").getAbsolutePath() + "/data");
