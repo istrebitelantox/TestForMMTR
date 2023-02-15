@@ -17,7 +17,7 @@ public class BaseTest implements IAllPageInformation {
         WebDriverRunner.getWebDriver().manage().window().setSize(new Dimension(1920,1080));
     }
     @AfterAll
-    public void sdasda(){
+    public static void sdasda(){
         WebDriverRunner.getWebDriver().quit();
     }
 }
