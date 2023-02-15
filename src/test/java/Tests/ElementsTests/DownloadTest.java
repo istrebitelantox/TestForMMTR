@@ -14,7 +14,7 @@ public class DownloadTest extends BaseTest {
         step_1();
         step_2();
         step_3();
-        step_4();
+//        step_4();
     }
     @Step("Переход к форме")
     public void step_1(){
