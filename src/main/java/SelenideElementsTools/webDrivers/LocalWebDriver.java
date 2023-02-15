@@ -48,7 +48,6 @@ public class LocalWebDriver implements WebDriverProvider {
             .addArguments("--disable-dev-shm-usage")
             .addArguments("--ignore-certificate-errors")*/
         options.setCapability(PAGE_LOAD_STRATEGY, "eager");
-        options.setBinary("/usr/bin/google-chrome");
 
         Map<String, Object> prefs = new HashMap<>();
         prefs.put("download.default_directory", new File(".").getAbsolutePath() + "/data");
