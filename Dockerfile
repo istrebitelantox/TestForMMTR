@@ -1,2 +1,3 @@
 FROM selenium/standalone-chrome
-CMD mvn test
+
+FROM maven:3.6.0
