@@ -4,6 +4,7 @@ pipeline {
         stage('Build') {
             steps {
                 sh 'mvn test'
+                echo '**/target/allure-results/*-result.json'
             }
         }
     }
