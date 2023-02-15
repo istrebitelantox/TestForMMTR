@@ -18,6 +18,5 @@ public class BaseTest implements IAllPageInformation {
     }
     @AfterAll
     public static void sdasda(){
-        WebDriverRunner.getWebDriver().quit();
-    }
+        WebDriverRunner.getWebDriver().quit();    }
 }
