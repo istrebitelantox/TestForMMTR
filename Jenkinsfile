@@ -27,7 +27,6 @@ pipeline {
                             results: [[path: 'target/allure-results']]
                     ])
             }
-            sh 'mvn allure:serve'
             }
         }
     }
