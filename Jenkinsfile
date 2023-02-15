@@ -9,13 +9,17 @@
 // }
 pipeline {
     agent {
-        dockerfile true
+        docker{
+            script{
+                image 'selenium/standalone-chrome'
+                image 'maven:3.6.0'
+            }
+        }
     }
     stages {
         stage('Build') {
             steps {
                 sh 'mvn test'
-                echo '**/target/allure-results/*-result.json'
             }
         }
         stage('reports') {
