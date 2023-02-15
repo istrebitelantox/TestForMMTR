@@ -9,10 +9,7 @@
 // }
 pipeline {
     agent {
-        docker{
-            image 'maven:3.6.0'
-            image 'selenium/standalone-chrome'
-        }
+        dockerfile true
     }
     stages {
         stage('Build') {
