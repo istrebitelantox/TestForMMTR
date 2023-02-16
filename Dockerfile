@@ -1,2 +1,2 @@
 FROM selenium/standalone-chrome
-FROM maven
+FROM maven:3.6.0
