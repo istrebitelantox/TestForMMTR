@@ -1,1 +1,1 @@
-FROM maven:3.3
+FROM maven:3.5
