@@ -1,4 +1,4 @@
-FROM java
+FROM maven:3.5
 RUN apt-get update && apt-get install -yq \
     firefox-esr=52.6.0esr-1~deb9u1 \
     chromium=62.0.3202.89-1~deb9u1 \
