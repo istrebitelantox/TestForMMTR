@@ -20,7 +20,7 @@ public class LocalWebDriver implements WebDriverProvider {
     @Override
     public org.openqa.selenium.WebDriver createDriver(@Nonnull Capabilities capabilities) {
         WebDriverManager.chromedriver().setup();
-        System.setProperty("webdriver.chrome.driver", "linuxchromedriver");
+        System.setProperty("webdriver.chrome.driver", "/home/yuriy/Documents/chromedriver");
         ChromeOptions options=new ChromeOptions();
         options.addArguments("--disable-logging");
         options.addArguments("--disable-infobars");
