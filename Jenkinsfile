@@ -10,7 +10,7 @@
 pipeline {
     agent {
         docker{
-            image 'maven'
+            image 'maven:3.1.0'
         }
     }
     stages {
