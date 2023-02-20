@@ -5,7 +5,7 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                echo 'Load'
+                sh 'mvn test'
             }
         }
         stage('reports') {
