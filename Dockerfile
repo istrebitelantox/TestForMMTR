@@ -1,4 +1,4 @@
-FROM maven:3.5
+FROM myapp:base
 RUN apt-get install -y wget xvfb unzip
 
 # Set up the Chrome PPA
